@@ -19,7 +19,4 @@ title: Conor Thackston
 
 ---
 
-### 📬 Connect
-- [📄 Resume](https://www.canva.com/design/DAFx7XiQI7l/qvCjyHRtr0BQzbEueUIMsQ/view)
-- [💼 LinkedIn](https://www.linkedin.com/in/conor-thackston-3912a8127)
-- [📧 Email Me](mailto:conorthackston@icloud.com)
+
