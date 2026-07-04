@@ -178,15 +178,10 @@ th {
 // Slim, sticky top bar (site name / search / dark-mode) instead of the
 // default page-header's large top margin meant for the old sidebar layout.
 .center > .page-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  position: static;
   margin-top: 0;
   padding-top: 1.1rem;
   padding-bottom: 1.1rem;
-  background-color: color-mix(in srgb, var(--light) 88%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--lightgray);
 }
 
@@ -654,4 +649,21 @@ body:not([data-slug="index"]) {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+// Hide the tags row when a post has no tags (avoids an empty gap above the
+// "Read" affordance).
+.section-ul .section .tags:empty {
+  display: none;
+}
+
+// "Read →" affordance pinned to the bottom of each card, in the section accent.
+.section-ul > .section-li > .section::after {
+  content: "Read \2192";
+  margin-top: auto;
+  padding-top: 0.15rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ct-accent);
 }
