@@ -1,11 +1,30 @@
 ---
-title: Welcome
-date: 2026-07-04
+title: Conor Thackston
+layout: basic
 ---
 
-# Welcome to my digital garden
+![[attachments/hero-portrait.png|150]]
 
-> [!abstract] About this space
-> This is the beginning of my digital garden — a place where I'll grow notes, ideas, and half-finished thoughts over time.
+# Conor Thackston
+## Innovation. Guided by Pedagogy.
 
-Thanks for stopping by. More to come soon.
+I bridge the gap between complex digital tools and meaningful learning outcomes.
+
+---
+
+### 📂 Strategic Leadership
+![[attachments/leadership-final.png]]
+- [[portfolio/Instructional Technology Portfolio|Instructional Tech & Standards Hub]]
+
+---
+
+### 💡 Insights & Vision
+![[attachments/vision-final.png]]
+- [[about/About Me|Philosophy, Blog & Reflections]]
+
+---
+
+### 📬 Connect
+- [📄 Resume](https://www.canva.com/design/DAFx7XiQI7l/qvCjyHRtr0BQzbEueUIMsQ/view)
+- [💼 LinkedIn](https://www.linkedin.com/in/conor-thackston-3912a8127)
+- [📧 Email Me](mailto:conorthackston@icloud.com)
