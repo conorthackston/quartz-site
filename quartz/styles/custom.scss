@@ -462,4 +462,86 @@ body:not([data-slug="index"]) {
     text-decoration: none;
     box-shadow: inset 0 -2px 0 0 color-mix(in srgb, #a855f7 55%, transparent);
   }
+
+  // --- Clean up leftover Notion export cruft ("dead photos") -----------------
+  // Every table imported from Notion carries a grey icon in its "Name" header
+  // (app.notion.com/icons/…svg) that no longer resolves. Hide the whole header
+  // row wherever one of those icons appears, and hide any stray Notion icon
+  // images elsewhere in the body.
+  article thead:has(img[src*="notion.com"]) {
+    display: none;
+  }
+  article img[src*="notion.com"] {
+    display: none;
+  }
+  // The one portfolio image that didn't get copied into the build
+  // (resources/image.png) renders as a broken-image box — hide it until it's
+  // re-uploaded so the page reads cleanly.
+  article img[src$="/resources/image.png"] {
+    display: none;
+  }
+
+  // --- Sleek artifact tables -------------------------------------------------
+  // The ISTE-standard artifact lists are single-column link tables; give them
+  // a rounded, bordered card look with hover rows instead of raw gridlines.
+  article table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.25rem 0 2rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -24px rgba(20, 20, 50, 0.5);
+  }
+  article table td {
+    padding: 0;
+    border: 0;
+    border-top: 1px solid var(--lightgray);
+    background: color-mix(in srgb, var(--secondary) 3%, var(--light));
+  }
+  article table tr:first-child td {
+    border-top: 0;
+  }
+  // Make each artifact link fill its cell so the whole row is a comfortable,
+  // hoverable target.
+  article table td a {
+    display: block;
+    padding: 0.85rem 1.15rem;
+    font-weight: 500;
+    color: var(--dark);
+    background: none;
+    transition:
+      background 0.18s ease,
+      padding-left 0.18s ease,
+      color 0.18s ease;
+  }
+  article table td a::before {
+    content: "→";
+    color: var(--secondary);
+    margin-right: 0.6rem;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+  }
+  article table td a:hover {
+    padding-left: 1.4rem;
+    color: var(--secondary);
+    background: color-mix(in srgb, var(--secondary) 9%, transparent);
+    box-shadow: none;
+  }
+  article table td a:hover::before {
+    opacity: 1;
+  }
+
+  // --- ISTE-standard sub-headings (h4) --------------------------------------
+  // e.g. "Change Agent", "Connected Learner" — small, spaced accent labels.
+  article h4 {
+    margin: 2.25rem 0 0.5rem;
+    font-family: var(--codeFont), monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, #a855f7 72%, var(--dark));
+  }
 }

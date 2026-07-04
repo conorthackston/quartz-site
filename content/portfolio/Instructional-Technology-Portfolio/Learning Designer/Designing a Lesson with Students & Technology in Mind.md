@@ -9,10 +9,6 @@ date: 2026-07-04
 
 ---
 
-[https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvYmM1NTAxNzYtYzRhMy00YTAyLWExMzctMTE4Mzc2OGYxYzU5Ni5wbmciLCJsaW5rSHJlZiI6Imh0dHBzOi8vZG9jcy5nb29nbGUuY29tL2RvY3VtZW50L2QvMV9kM1AzU2dsckdEQk9nZjRXMmdmb3NiQTJSU1dxRVAwUWozeEJMb1hVQ3cvZWRpdD91c3A9c2hhcmluZyJ9](https://notaku.so/iframes/clickable-image/eyJpbWFnZVVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9ub3Rha3UtdXNlci1pbWFnZXMvYmM1NTAxNzYtYzRhMy00YTAyLWExMzctMTE4Mzc2OGYxYzU5Ni5wbmciLCJsaW5rSHJlZiI6Imh0dHBzOi8vZG9jcy5nb29nbGUuY29tL2RvY3VtZW50L2QvMV9kM1AzU2dsckdEQk9nZjRXMmdmb3NiQTJSU1dxRVAwUWozeEJMb1hVQ3cvZWRpdD91c3A9c2hhcmluZyJ9)
-
----
-
 • My final artifact from the Learning Designer standard is one of the lengthiest artifacts because we had to look at a whole lesson plan and work together to pick where we would be able to add UDL principles to create an authentic, active learning experience for students. The UDL additions to the lesson had to allow students to demonstrate their abilities while also deepening their mastery of the content. I started off looking back through the lesson when I taught it and where I added in supplemental services via technology for students with learning needs. After I went through, I discussed where we would be able integrate technology and how we can make sure all students are able to demonstrate their learning regardless of learning ability. I really enjoyed this lesson because it allowed us to work together to apply what we learned in class with a real lesson plan. I feel like I had a better understanding of the UDL principles as well as how to integrate them into my own profession.
 
 ---
