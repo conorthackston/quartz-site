@@ -360,3 +360,106 @@ body[data-slug="index"] {
 :root[saved-theme="dark"] body[data-slug="index"] {
   --ct-grad: linear-gradient(120deg, #2997ff, #7c8bff 45%, #c084fc);
 }
+
+// ============================================================================
+// Interior content pages — bring the homepage's color language to every note:
+// a gradient page title, gradient-underlined section headings, a colored
+// accent on sub-headings, richer callouts, and a soft colored glow at the top
+// of the page. All theme-aware; the gradient flips brighter in dark mode.
+// ============================================================================
+:root {
+  --ct-grad-page: linear-gradient(120deg, #0071e3, #5b6bff 45%, #a855f7);
+  --ct-grad-line: linear-gradient(90deg, #0071e3, #a855f7);
+}
+:root[saved-theme="dark"] {
+  --ct-grad-page: linear-gradient(120deg, #2997ff, #7c8bff 45%, #c084fc);
+  --ct-grad-line: linear-gradient(90deg, #2997ff, #c084fc);
+}
+
+// Faint blue + violet wash across the top of interior pages, painted into the
+// page background so it always sits behind the content.
+body:not([data-slug="index"]) {
+  background-image:
+    radial-gradient(
+      600px 340px at 15% -120px,
+      color-mix(in srgb, var(--secondary) 16%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      560px 320px at 88% -140px,
+      color-mix(in srgb, #a855f7 15%, transparent),
+      transparent 70%
+    );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+// The big page title (from the frontmatter) rendered in the gradient — the
+// single most colorful, on-brand element on every page.
+body:not([data-slug="index"]) {
+  .page-header h1,
+  .article-title {
+    background: var(--ct-grad-page);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    letter-spacing: -0.03em;
+  }
+
+  // The date / reading-time line set in mono, like the hero eyebrow.
+  .content-meta {
+    font-family: var(--codeFont), monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    color: var(--gray);
+  }
+
+  // Section headings keep their text color (so emoji stay intact) but gain a
+  // short gradient underline for color and rhythm.
+  article h1,
+  article h2 {
+    display: inline-block;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid transparent;
+    border-image: var(--ct-grad-line) 1;
+  }
+
+  // Sub-headings pick up the violet end of the gradient as a flat accent.
+  article h3 {
+    color: color-mix(in srgb, #a855f7 78%, var(--dark));
+  }
+
+  // Callouts get a subtle two-tone gradient tint over their existing type
+  // color, so they read as designed cards rather than plain grey boxes.
+  .callout {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--secondary) 9%, var(--light)),
+      color-mix(in srgb, #a855f7 6%, var(--light))
+    );
+    border: 1px solid color-mix(in srgb, var(--secondary) 22%, transparent);
+  }
+
+  // Section dividers become soft fading gradient lines to match the homepage.
+  article hr {
+    height: 1px;
+    border: 0;
+    opacity: 1;
+    margin: 2.5rem auto;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--secondary) 30%, transparent),
+      color-mix(in srgb, #a855f7 26%, transparent),
+      transparent
+    );
+  }
+
+  // Body links pick up a gradient underline on hover for a little extra life.
+  article a.internal:hover,
+  article p a:hover {
+    text-decoration: none;
+    box-shadow: inset 0 -2px 0 0 color-mix(in srgb, #a855f7 55%, transparent);
+  }
+}
