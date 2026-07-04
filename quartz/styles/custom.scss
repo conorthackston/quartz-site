@@ -212,6 +212,9 @@ th {
 // cards below it. Only page-level chrome tweaks remain here.
 // ----------------------------------------------------------------------------
 body[data-slug="index"] {
+  // Blue -> indigo -> violet gradient, matched to Hero.tsx and themed per mode.
+  --ct-grad: linear-gradient(120deg, #0071e3, #5b6bff 45%, #a855f7);
+
   // Let the hero own the top of the page — drop the sticky/blur nav treatment
   // on the homepage so the component reads as a full landing header.
   .center > .page-header {
@@ -222,19 +225,138 @@ body[data-slug="index"] {
     background-color: transparent;
   }
 
-  // Center the remaining landing content (the Strategic Leadership / Insights /
-  // Connect cards) under the hero.
   .center > article {
     text-align: center;
 
-    hr {
-      max-width: 6rem;
-      margin: 3rem auto;
+    // Section headings ("📂 Strategic Leadership" etc.) become small, spaced
+    // eyebrow labels in the accent color — quieter than the framed image below.
+    h3 {
+      font-family: var(--codeFont), monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin: 0 0 1rem;
     }
 
-    ul {
+    // Feature images become premium framed cards with a uniform crop, soft
+    // border/shadow, and a gentle hover lift.
+    p:has(> img),
+    p:has(> a > img) {
+      margin: 0;
+    }
+
+    // Each image is wrapped in a link to the same destination as its button —
+    // strip the default internal-link tint so only the framed card shows.
+    p a:has(> img),
+    p a.internal:has(> img) {
       display: inline-block;
-      text-align: left;
+      background: none !important;
+      border-radius: 20px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 1px solid var(--lightgray);
+      box-shadow: 0 18px 38px -22px rgba(20, 20, 50, 0.45);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 26px 50px -24px rgba(20, 20, 50, 0.55);
+    }
+
+    // Link lists become a centered row of pill buttons instead of bare bullets.
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      justify-content: center;
+      padding: 0;
+      margin: 1.25rem 0 0;
+    }
+
+    li {
+      margin: 0;
+    }
+
+    ul li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.3rem;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--dark);
+      background: color-mix(in srgb, var(--darkgray) 6%, transparent);
+      border: 1px solid color-mix(in srgb, var(--darkgray) 14%, transparent);
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+    }
+
+    // Kill the default translucent tint Quartz adds to internal links so the
+    // pill background reads cleanly.
+    ul li a.internal {
+      background: color-mix(in srgb, var(--darkgray) 6%, transparent);
+    }
+
+    ul li a:hover {
+      transform: translateY(-2px);
+      background: color-mix(in srgb, var(--darkgray) 11%, transparent);
+    }
+
+    // The single link under each feature section is the primary call to
+    // action — upgrade it to a gradient button with a trailing arrow.
+    li:only-child a,
+    li:only-child a.internal {
+      color: #fff;
+      background: var(--ct-grad);
+      background-size: 160% auto;
+      border-color: transparent;
+      box-shadow: 0 10px 24px -12px rgba(90, 80, 220, 0.7);
+    }
+
+    li:only-child a::after {
+      content: "→";
+      font-size: 1.05em;
+      line-height: 1;
+    }
+
+    li:only-child a:hover {
+      background-position: 100% 0;
+      box-shadow: 0 14px 30px -12px rgba(90, 80, 220, 0.8);
+    }
+
+    // Soft, fading divider instead of a hard rule.
+    hr {
+      max-width: 100%;
+      height: 1px;
+      border: 0;
+      margin: 3rem auto;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in srgb, var(--darkgray) 14%, transparent),
+        transparent
+      );
     }
   }
+}
+
+:root[saved-theme="dark"] body[data-slug="index"] {
+  --ct-grad: linear-gradient(120deg, #2997ff, #7c8bff 45%, #c084fc);
 }
