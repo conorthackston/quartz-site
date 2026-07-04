@@ -9,13 +9,13 @@ title: Conor Thackston
 
 ### 📂 Strategic Leadership
 [![Strategic Leadership](attachments/leadership-final.png)](<portfolio/Instructional Technology Portfolio>)
-- [[portfolio/Instructional Technology Portfolio|Instructional Tech &amp; Standards Hub]]
+- [[portfolio/Instructional Technology Portfolio|Instructional Tech, & Standards Hub]]
 
 ---
 
 ### 💡 Insights &amp; Vision
 [![Insights and Vision](attachments/vision-final.png)](<about/About Me>)
-- [[about/About Me|Philosophy, Blog &amp; Reflections]]
+- [[about/About Me|Philosophy, Blog, & Reflections]]
 
 ---
 
