@@ -6,7 +6,7 @@ layout: basic
 ![[attachments/hero-portrait.png|150]]
 
 # Conor Thackston
-## Innovation. Guided by Pedagogy. 
+## Innovation. Guided by Pedagogy.
 
 I bridge the gap between complex digital tools and meaningful learning outcomes.
 
