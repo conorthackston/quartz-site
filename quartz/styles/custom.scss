@@ -370,10 +370,31 @@ body[data-slug="index"] {
 :root {
   --ct-grad-page: linear-gradient(120deg, #0071e3, #5b6bff 45%, #a855f7);
   --ct-grad-line: linear-gradient(90deg, #0071e3, #a855f7);
+  // Single-hue accent + the two top-glow colors, so a section can retint its
+  // whole identity by overriding just these three.
+  --ct-accent: var(--secondary);
+  --ct-glow-a: var(--secondary);
+  --ct-glow-b: #a855f7;
 }
 :root[saved-theme="dark"] {
   --ct-grad-page: linear-gradient(120deg, #2997ff, #7c8bff 45%, #c084fc);
   --ct-grad-line: linear-gradient(90deg, #2997ff, #c084fc);
+}
+
+// Blog section gets its own cyan -> indigo -> violet identity — distinct from
+// the blue/violet used elsewhere, but in the same family so it still matches.
+body[data-slug^="blogs"] {
+  --ct-grad-page: linear-gradient(120deg, #0891b2, #6366f1 50%, #a855f7);
+  --ct-grad-line: linear-gradient(90deg, #0891b2, #a855f7);
+  --ct-accent: #0891b2;
+  --ct-glow-a: #06b6d4;
+  --ct-glow-b: #a855f7;
+}
+:root[saved-theme="dark"] body[data-slug^="blogs"] {
+  --ct-grad-page: linear-gradient(120deg, #22d3ee, #818cf8 50%, #c084fc);
+  --ct-grad-line: linear-gradient(90deg, #22d3ee, #c084fc);
+  --ct-accent: #22d3ee;
+  --ct-glow-a: #22d3ee;
 }
 
 // Faint blue + violet wash across the top of interior pages, painted into the
@@ -382,12 +403,12 @@ body:not([data-slug="index"]) {
   background-image:
     radial-gradient(
       600px 340px at 15% -120px,
-      color-mix(in srgb, var(--secondary) 16%, transparent),
+      color-mix(in srgb, var(--ct-glow-a) 16%, transparent),
       transparent 70%
     ),
     radial-gradient(
       560px 320px at 88% -140px,
-      color-mix(in srgb, #a855f7 15%, transparent),
+      color-mix(in srgb, var(--ct-glow-b) 15%, transparent),
       transparent 70%
     );
   background-repeat: no-repeat;
@@ -435,10 +456,10 @@ body:not([data-slug="index"]) {
   .callout {
     background: linear-gradient(
       135deg,
-      color-mix(in srgb, var(--secondary) 9%, var(--light)),
+      color-mix(in srgb, var(--ct-accent) 9%, var(--light)),
       color-mix(in srgb, #a855f7 6%, var(--light))
     );
-    border: 1px solid color-mix(in srgb, var(--secondary) 22%, transparent);
+    border: 1px solid color-mix(in srgb, var(--ct-accent) 22%, transparent);
   }
 
   // Section dividers become soft fading gradient lines to match the homepage.
@@ -544,4 +565,93 @@ body:not([data-slug="index"]) {
     text-transform: uppercase;
     color: color-mix(in srgb, #a855f7 72%, var(--dark));
   }
+}
+
+// ============================================================================
+// Folder / tag listing pages — turn the plain date + title list into a sleek
+// two-column grid of post cards. Tinted by --ct-accent, so the blog section's
+// cyan scheme flows straight through with no extra rules.
+// ============================================================================
+.section-ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+
+  @media all and ($mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-ul > .section-li {
+  margin: 0;
+}
+
+.section-ul > .section-li > .section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+  height: 100%;
+  padding: 1.1rem 1.15rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid var(--lightgray);
+  background: color-mix(in srgb, var(--ct-accent) 3%, var(--light));
+  box-shadow: 0 14px 32px -26px rgba(20, 20, 50, 0.55);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.section-ul > .section-li > .section:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--ct-accent) 45%, transparent);
+  box-shadow: 0 22px 42px -26px rgba(20, 20, 50, 0.6);
+}
+
+// Date becomes a small mono pill in the section accent.
+.section-ul .section .meta {
+  margin: 0;
+  font-family: var(--codeFont), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ct-accent);
+  background: color-mix(in srgb, var(--ct-accent) 12%, transparent);
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+}
+
+.section-ul .section .desc {
+  width: 100%;
+}
+
+.section-ul .section .desc h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+}
+
+.section-ul .section .desc h3 a {
+  color: var(--dark);
+  background: none;
+}
+
+.section-ul .section .desc h3 a:hover {
+  color: var(--ct-accent);
+  box-shadow: none;
+}
+
+// Tag chips inside a card.
+.section-ul .section .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
