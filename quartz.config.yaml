@@ -72,7 +72,7 @@ plugins:
     enabled: true
     order: 40
   - source: github:quartz-community/table-of-contents
-    enabled: true
+    enabled: false
     order: 50
     layout:
       position: right
@@ -104,6 +104,14 @@ plugins:
     order: 92
   - source: github:quartz-community/fonts
     enabled: true
+    options:
+      header:
+        name: Inter
+        weights: [500, 600, 700]
+      body:
+        name: Inter
+        weights: [400, 500, 600]
+      code: IBM Plex Mono
   - source: github:quartz-community/remove-draft
     enabled: true
   - source: github:quartz-community/explicit-publish
@@ -130,25 +138,23 @@ plugins:
   - source: github:quartz-community/tag-page
     enabled: true
   - source: github:quartz-community/explorer
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 50
   - source: github:quartz-community/graph
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10
   - source: github:quartz-community/search
     enabled: true
     layout:
-      position: left
-      priority: 20
-      group: toolbar
-      groupOptions:
-        grow: true
+      position: beforeBody
+      priority: 3
+      group: topnav
   - source: github:quartz-community/backlinks
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 50
@@ -157,11 +163,13 @@ plugins:
     layout:
       position: beforeBody
       priority: 10
+      condition: not-index
   - source: github:quartz-community/content-meta
     enabled: true
     layout:
       position: beforeBody
       priority: 20
+      condition: not-index
   - source: github:quartz-community/tag-list
     enabled: false
     layout:
@@ -170,16 +178,17 @@ plugins:
   - source: github:quartz-community/page-title
     enabled: true
     layout:
-      position: left
-      priority: 10
+      position: beforeBody
+      priority: 1
+      group: topnav
   - source: github:quartz-community/darkmode
     enabled: true
     layout:
-      position: left
-      priority: 30
-      group: toolbar
+      position: beforeBody
+      priority: 4
+      group: topnav
   - source: github:quartz-community/reader-mode
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 35
@@ -202,8 +211,8 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        LinkedIn: https://www.linkedin.com/in/conor-thackston-3912a8127
+        Email: mailto:conorthackston@icloud.com
   - source: github:quartz-community/recent-notes
     enabled: false
   - source: github:quartz-community/spacer
@@ -211,9 +220,9 @@ plugins:
     options: {}
     order: 25
     layout:
-      position: left
-      priority: 25
-      display: mobile-only
+      position: beforeBody
+      priority: 2
+      group: topnav
   - source: github:quartz-community/bases-page
     enabled: true
     options: {}
@@ -259,26 +268,22 @@ plugins:
       display: all
 layout:
   groups:
-    toolbar:
-      priority: 35
+    topnav:
+      priority: 1
       direction: row
-      gap: 0.5rem
+      gap: 0.75rem
   byPageType:
     "404":
+      template: full-width
       positions:
         beforeBody: []
         left: []
         right: []
-    content: {}
+    content:
+      template: full-width
     folder:
-      exclude:
-        - reader-mode
-      positions:
-        right: []
+      template: full-width
     tag:
-      exclude:
-        - reader-mode
-      positions:
-        right: []
+      template: full-width
     canvas: {}
     bases: {}

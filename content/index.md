@@ -1,6 +1,5 @@
 ---
 title: Conor Thackston
-layout: basic
 ---
 
 ![[attachments/hero-portrait.png|150]]

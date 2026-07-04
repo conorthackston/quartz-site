@@ -19,8 +19,8 @@ body {
 }
 
 // Apple's headline type is set noticeably tighter than body copy, with
-// negative tracking that increases as size increases. Weight stays a
-// restrained 500 across all levels rather than stepping up to bold.
+// negative tracking and a clear size/weight step at every level so the
+// hierarchy reads at a glance instead of collapsing into one plain size.
 h1,
 h2,
 h3,
@@ -28,29 +28,66 @@ h4,
 h5,
 h6 {
   letter-spacing: -0.021em;
-  font-weight: 500;
+  font-weight: $semiBoldWeight;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   line-height: 1.1;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.03em;
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: 1.9rem;
   line-height: 1.2;
-  letter-spacing: -0.024em;
+  letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.3;
+}
+
+h4 {
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+h5,
+h6 {
+  font-size: 1rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--gray);
 }
 
 p,
 li {
   letter-spacing: -0.014em;
+}
+
+// Notion-style flat outlines read flat because every bullet is the same
+// weight/spacing as body copy — give lists their own rhythm and an
+// accent-colored marker so nested structure is visible at a glance.
+article {
+  ul,
+  ol {
+    margin: 0.85rem 0;
+    padding-left: 1.3rem;
+  }
+
+  li {
+    margin: 0.4rem 0;
+  }
+
+  li::marker {
+    color: var(--secondary);
+  }
+
+  li > strong:first-child {
+    color: var(--dark);
+  }
 }
 
 // Sidebar brand text (site title) — kept semi-bold so it still reads as a
@@ -117,37 +154,109 @@ th {
 }
 
 // ----------------------------------------------------------------------------
-// Sidebar: lower visual weight — a barely-there panel tint instead of a hard
-// edge, lighter link weight, and thinner icon strokes for a minimal feel.
+// Main content: a constrained, centered reading column instead of full-bleed
+// text. The header block, article body, and footer all share the same
+// max-width so the nav bar, title, and prose line up on one vertical edge —
+// without this they visually misalign (nav flush to the browser edge, body
+// text indented), which reads as unfinished rather than "airy".
 // ----------------------------------------------------------------------------
-@media all and ($desktop) {
-  .sidebar.left,
-  .sidebar.right {
-    background-color: var(--lightgray);
-  }
-}
-
-.explorer-content ul li > a,
-.folder-container div > a,
-.folder-container div > button span {
-  font-weight: $normalWeight;
-}
-
-.explorer svg,
-.folder-icon,
-.lucide-menu {
-  stroke-width: 1.25px;
-  opacity: 0.7;
-}
-
-// ----------------------------------------------------------------------------
-// Main content: generous side margins for airier, less cramped reading width.
-// ----------------------------------------------------------------------------
-.center > article {
+.center > .page-header,
+.center > article,
+.center > .page-footer {
   box-sizing: border-box;
-  padding: 0 4rem;
+  width: 100%;
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
 
   @media all and ($mobile) {
     padding: 0 1.25rem;
+  }
+}
+
+// Slim, sticky top bar (site name / search / dark-mode) instead of the
+// default page-header's large top margin meant for the old sidebar layout.
+.center > .page-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin-top: 0;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  background-color: color-mix(in srgb, var(--light) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--lightgray);
+}
+
+.page-title {
+  font-size: 1.2rem;
+}
+
+.darkmode,
+.search-button {
+  transition: opacity 0.2s ease;
+  opacity: 0.75;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Homepage hero — this build has no per-file frame override (frame is chosen
+// per page *type* in quartz.config.yaml, and the homepage is an ordinary
+// "content" page), so the hero treatment is scoped via the slug data
+// attribute on <body> rather than a frame/layout class.
+// ----------------------------------------------------------------------------
+// Width/centering for the header/article/footer trio is already handled by
+// the site-wide rule above; here we only add the hero-specific vertical
+// space and child styling, scoped to a narrower column than a regular article.
+body[data-slug="index"] {
+  .center > .page-header {
+    position: static;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+    background-color: transparent;
+  }
+
+  .center > article {
+    max-width: 40rem;
+    padding-top: 2rem;
+  }
+
+  article {
+    text-align: center;
+
+    h1:first-of-type {
+      font-size: 3rem;
+      margin-top: 1.5rem;
+    }
+
+    h2:first-of-type {
+      font-weight: $normalWeight;
+      color: var(--gray);
+      margin-top: 0.25rem;
+      letter-spacing: -0.021em;
+    }
+
+    img:first-of-type {
+      border-radius: 50%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+
+    hr {
+      max-width: 6rem;
+      margin: 3rem auto;
+    }
+
+    ul {
+      display: inline-block;
+      text-align: left;
+    }
   }
 }
