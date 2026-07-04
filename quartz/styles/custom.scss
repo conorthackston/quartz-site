@@ -205,15 +205,15 @@ th {
 }
 
 // ----------------------------------------------------------------------------
-// Homepage hero — this build has no per-file frame override (frame is chosen
-// per page *type* in quartz.config.yaml, and the homepage is an ordinary
-// "content" page), so the hero treatment is scoped via the slug data
-// attribute on <body> rather than a frame/layout class.
+// Homepage — the hero (portrait, name, gradient tagline, actions) is now the
+// Hero.tsx component rendered in `beforeBody` (see quartz.ts). The old markdown
+// hero and its CSS treatment (circular first image, oversized first h1/h2) have
+// been removed so they can't clash with the component or restyle the landing
+// cards below it. Only page-level chrome tweaks remain here.
 // ----------------------------------------------------------------------------
-// Width/centering for the header/article/footer trio is already handled by
-// the site-wide rule above; here we only add the hero-specific vertical
-// space and child styling, scoped to a narrower column than a regular article.
 body[data-slug="index"] {
+  // Let the hero own the top of the page — drop the sticky/blur nav treatment
+  // on the homepage so the component reads as a full landing header.
   .center > .page-header {
     position: static;
     backdrop-filter: none;
@@ -222,32 +222,10 @@ body[data-slug="index"] {
     background-color: transparent;
   }
 
+  // Center the remaining landing content (the Strategic Leadership / Insights /
+  // Connect cards) under the hero.
   .center > article {
-    max-width: 40rem;
-    padding-top: 2rem;
-  }
-
-  article {
     text-align: center;
-
-    h1:first-of-type {
-      font-size: 3rem;
-      margin-top: 1.5rem;
-    }
-
-    h2:first-of-type {
-      font-weight: $normalWeight;
-      color: var(--gray);
-      margin-top: 0.25rem;
-      letter-spacing: -0.021em;
-    }
-
-    img:first-of-type {
-      border-radius: 50%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      margin: 0 auto;
-    }
 
     hr {
       max-width: 6rem;

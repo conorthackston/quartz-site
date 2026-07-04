@@ -2,24 +2,20 @@
 title: Conor Thackston
 ---
 
-![[attachments/hero-portrait.png|150]]
-
-# Conor Thackston
-## Innovation. Guided by Pedagogy.
-
-I bridge the gap between complex digital tools and meaningful learning outcomes.
-
----
+<!-- The hero (portrait, name, "Innovation. Guided by Pedagogy.", intro line, and
+     Resume / LinkedIn / Email actions) is now rendered by the Hero.tsx component
+     above the page body on the homepage. Keep the sections below for the landing
+     content cards. -->
 
 ### 📂 Strategic Leadership
 ![[attachments/leadership-final.png]]
-- [[portfolio/Instructional Technology Portfolio|Instructional Tech & Standards Hub]]
+- [[portfolio/Instructional Technology Portfolio|Instructional Tech &amp; Standards Hub]]
 
 ---
 
-### 💡 Insights & Vision
+### 💡 Insights &amp; Vision
 ![[attachments/vision-final.png]]
-- [[about/About Me|Philosophy, Blog & Reflections]]
+- [[about/About Me|Philosophy, Blog &amp; Reflections]]
 
 ---
 

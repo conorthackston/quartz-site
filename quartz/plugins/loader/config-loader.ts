@@ -26,6 +26,7 @@ import { loadComponentsFromPackage } from "./componentLoader"
 import { loadFramesFromPackage } from "./frameLoader"
 import { componentRegistry } from "../../components/registry"
 import { getCondition } from "./conditions"
+import Hero from "../../components/Hero"
 
 const CONFIG_YAML_PATH = path.join(process.cwd(), "quartz.config.yaml")
 const DEFAULT_CONFIG_YAML_PATH = path.join(process.cwd(), "quartz.config.default.yaml")
@@ -491,6 +492,16 @@ export async function loadQuartzConfig(
   // Load layout and add PageTypeDispatcher to emitters.
   // This must happen after plugin instantiation so the component registry is populated.
   const layout = await loadQuartzLayout()
+  // Prepend the local Hero component to beforeBody so it renders at the top
+  // of the page shell. Hero self-guards to the homepage (fileData.slug ===
+  // "index"), so this stays a no-op on every other page. Any page type with
+  // its own quartz.config.yaml `byPageType` entry gets an independently-built
+  // beforeBody array (see loadQuartzLayout above), so prepending only to
+  // `defaults` would silently miss those types — inject into all of them.
+  layout.defaults.beforeBody = [Hero(), ...(layout.defaults.beforeBody ?? [])]
+  for (const pageTypeLayout of Object.values(layout.byPageType)) {
+    pageTypeLayout.beforeBody = [Hero(), ...(pageTypeLayout.beforeBody ?? [])]
+  }
   plugins.emitters.push(
     builtinPlugins.PageTypes.PageTypeDispatcher({
       defaults: layout.defaults,
