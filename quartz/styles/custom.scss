@@ -363,33 +363,74 @@ body[data-slug="index"] {
 // of the page. All theme-aware; the gradient flips brighter in dark mode.
 // ============================================================================
 :root {
-  --ct-grad-page: linear-gradient(120deg, #0071e3, #5b6bff 45%, #a855f7);
-  --ct-grad-line: linear-gradient(90deg, #0071e3, #a855f7);
-  // Single-hue accent + the two top-glow colors, so a section can retint its
-  // whole identity by overriding just these three.
+  // Two accents drive everything: --ct-accent is the lead hue (pills, meta,
+  // "Read", links), --ct-accent-2 is the resolve hue (gradient/glow end). The
+  // page gradient, underline gradient and top glow are all derived from them,
+  // so a whole section retints by overriding just these three properties.
   --ct-accent: var(--secondary);
-  --ct-glow-a: var(--secondary);
-  --ct-glow-b: #a855f7;
+  --ct-accent-2: #a855f7;
+  --ct-grad-page: linear-gradient(120deg, #0071e3, #5b6bff 45%, #a855f7);
+  --ct-grad-line: linear-gradient(90deg, var(--ct-accent), var(--ct-accent-2));
+  --ct-glow-a: var(--ct-accent);
+  --ct-glow-b: var(--ct-accent-2);
 }
 :root[saved-theme="dark"] {
+  --ct-accent-2: #c084fc;
   --ct-grad-page: linear-gradient(120deg, #2997ff, #7c8bff 45%, #c084fc);
-  --ct-grad-line: linear-gradient(90deg, #2997ff, #c084fc);
 }
 
-// Blog section gets its own cyan -> indigo -> violet identity — distinct from
-// the blue/violet used elsewhere, but in the same family so it still matches.
+// ---------------------------------------------------------------------------
+// Per-section accent identities. Each top-level section leads with its own
+// hue but resolves toward a shared jewel-tone end, so they read as a family
+// rather than four unrelated themes. Dark mode uses brighter variants.
+// ---------------------------------------------------------------------------
+
+// About — emerald -> teal
+body[data-slug^="about"] {
+  --ct-accent: #059669;
+  --ct-accent-2: #0d9488;
+  --ct-grad-page: linear-gradient(120deg, #10b981, #059669 45%, #0d9488);
+}
+:root[saved-theme="dark"] body[data-slug^="about"] {
+  --ct-accent: #34d399;
+  --ct-accent-2: #2dd4bf;
+  --ct-grad-page: linear-gradient(120deg, #34d399, #10b981 45%, #2dd4bf);
+}
+
+// Portfolio — sky -> indigo
+body[data-slug^="portfolio"] {
+  --ct-accent: #0284c7;
+  --ct-accent-2: #4f46e5;
+  --ct-grad-page: linear-gradient(120deg, #0ea5e9, #3b82f6 50%, #4f46e5);
+}
+:root[saved-theme="dark"] body[data-slug^="portfolio"] {
+  --ct-accent: #38bdf8;
+  --ct-accent-2: #818cf8;
+  --ct-grad-page: linear-gradient(120deg, #38bdf8, #60a5fa 50%, #818cf8);
+}
+
+// Blogs — cyan -> violet
 body[data-slug^="blogs"] {
-  --ct-grad-page: linear-gradient(120deg, #0891b2, #6366f1 50%, #a855f7);
-  --ct-grad-line: linear-gradient(90deg, #0891b2, #a855f7);
   --ct-accent: #0891b2;
-  --ct-glow-a: #06b6d4;
-  --ct-glow-b: #a855f7;
+  --ct-accent-2: #7c3aed;
+  --ct-grad-page: linear-gradient(120deg, #0891b2, #6366f1 50%, #a855f7);
 }
 :root[saved-theme="dark"] body[data-slug^="blogs"] {
-  --ct-grad-page: linear-gradient(120deg, #22d3ee, #818cf8 50%, #c084fc);
-  --ct-grad-line: linear-gradient(90deg, #22d3ee, #c084fc);
   --ct-accent: #22d3ee;
-  --ct-glow-a: #22d3ee;
+  --ct-accent-2: #c084fc;
+  --ct-grad-page: linear-gradient(120deg, #22d3ee, #818cf8 50%, #c084fc);
+}
+
+// Resources — orange -> red
+body[data-slug^="resources"] {
+  --ct-accent: #ea580c;
+  --ct-accent-2: #dc2626;
+  --ct-grad-page: linear-gradient(120deg, #f97316, #ef4444 50%, #dc2626);
+}
+:root[saved-theme="dark"] body[data-slug^="resources"] {
+  --ct-accent: #fb923c;
+  --ct-accent-2: #f87171;
+  --ct-grad-page: linear-gradient(120deg, #fb923c, #f87171 50%, #ef4444);
 }
 
 // Faint blue + violet wash across the top of interior pages, painted into the
@@ -443,7 +484,7 @@ body:not([data-slug="index"]) {
 
   // Sub-headings pick up the violet end of the gradient as a flat accent.
   article h3 {
-    color: color-mix(in srgb, #a855f7 78%, var(--dark));
+    color: color-mix(in srgb, var(--ct-accent-2) 78%, var(--dark));
   }
 
   // Callouts get a subtle two-tone gradient tint over their existing type
@@ -452,7 +493,7 @@ body:not([data-slug="index"]) {
     background: linear-gradient(
       135deg,
       color-mix(in srgb, var(--ct-accent) 9%, var(--light)),
-      color-mix(in srgb, #a855f7 6%, var(--light))
+      color-mix(in srgb, var(--ct-accent-2) 6%, var(--light))
     );
     border: 1px solid color-mix(in srgb, var(--ct-accent) 22%, transparent);
   }
@@ -476,7 +517,7 @@ body:not([data-slug="index"]) {
   article a.internal:hover,
   article p a:hover {
     text-decoration: none;
-    box-shadow: inset 0 -2px 0 0 color-mix(in srgb, #a855f7 55%, transparent);
+    box-shadow: inset 0 -2px 0 0 color-mix(in srgb, var(--ct-accent-2) 55%, transparent);
   }
 
   // --- Clean up leftover Notion export cruft ("dead photos") -----------------
@@ -558,7 +599,7 @@ body:not([data-slug="index"]) {
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: color-mix(in srgb, #a855f7 72%, var(--dark));
+    color: color-mix(in srgb, var(--ct-accent-2) 72%, var(--dark));
   }
 }
 
