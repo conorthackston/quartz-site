@@ -27,6 +27,7 @@ import { loadFramesFromPackage } from "./frameLoader"
 import { componentRegistry } from "../../components/registry"
 import { getCondition } from "./conditions"
 import Hero from "../../components/Hero"
+import QuickNav from "../../components/QuickNav"
 
 const CONFIG_YAML_PATH = path.join(process.cwd(), "quartz.config.yaml")
 const DEFAULT_CONFIG_YAML_PATH = path.join(process.cwd(), "quartz.config.default.yaml")
@@ -499,8 +500,13 @@ export async function loadQuartzConfig(
   // beforeBody array (see loadQuartzLayout above), so prepending only to
   // `defaults` would silently miss those types — inject into all of them.
   layout.defaults.beforeBody = [Hero(), ...(layout.defaults.beforeBody ?? [])]
+  // QuickNav is fixed-position and renders on every page (no slug guard), so
+  // DOM placement doesn't matter — afterBody keeps it out of the way of
+  // beforeBody's Hero/title/breadcrumb ordering.
+  layout.defaults.afterBody = [...(layout.defaults.afterBody ?? []), QuickNav()]
   for (const pageTypeLayout of Object.values(layout.byPageType)) {
     pageTypeLayout.beforeBody = [Hero(), ...(pageTypeLayout.beforeBody ?? [])]
+    pageTypeLayout.afterBody = [...(pageTypeLayout.afterBody ?? []), QuickNav()]
   }
   plugins.emitters.push(
     builtinPlugins.PageTypes.PageTypeDispatcher({
