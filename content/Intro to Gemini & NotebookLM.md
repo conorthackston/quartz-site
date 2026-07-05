@@ -1,13 +1,10 @@
 ---
-title: "Intro to Gemini & NotebookLM"
-source: "https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/home"
-author:
-published:
+title: Intro to Gemini & NotebookLM
+source: https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/home
 created: 2026-07-05
-description: "Slash Grading Time by Hours"
-tags:
-  - "clippings"
 ---
+## Slash Grading Time by Hours
+
 - The Struggle: Teachers often spend their nights and weekends grading written assessments, leaving little time for planning or rest.
 - The Solution: By connecting Google Forms to Gemini, you can automate the analysis of student writing. The AI applies your specific rubric to every response instantly, providing detailed, consistent feedback for 150 students in the time it usually takes to grade five.
 - Time Saved: Hours per week.
@@ -36,8 +33,16 @@ tags:
 - The Solution: With Gemini in Slides, you can type a prompt and generate unique, copyright-free, and culturally responsive images for your lessons in seconds. You no longer have to settle for "good enough" clipart.
 - Time Saved: 10–15 minutes per presentation.
 
-<iframe frameborder="0" title="Custom embed" aria-label="Custom embed" src="https://www.gstatic.com/atari/embeds/8306a3600875750e6acc147fd93569bf/intermediate-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.9vdPKhB0RUg.O%2Fd%3D1%2Frs%3DAHpOoo97anj7zZ432JcN58tqJJp_A6WeOw%2Fm%3D__features__&amp;r=814440715"></iframe>
+[![Alt Text](attachments/numberone.png)]([[Creating-and-grading-assessments]])
 
-Page updated
+[![Alt Text](attachments/numbertwo.png)]([[Accessible-Learning]])
 
-Report abuse
+[![Alt Text](attachments/numberthree.png)]([[Custom-Support-for-Students]])
+
+[![Alt Text](attachments/numberfour.png)]([[Instructional-Design]])
+
+[![Alt Text](attachments/numberfive.png)]([[Professional-Communication]])
+
+[![Alt Text](attachments/numbersix.png)]([[Creating-Educational-Games]])
+
+[![Alt Text](attachments/numberseven.png)]([[Target-Page-Name]])
