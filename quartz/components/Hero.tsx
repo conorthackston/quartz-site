@@ -87,7 +87,12 @@ Hero.css = `
   --ct-aurora-blue: rgba(41, 151, 255, 0.28);
   --ct-aurora-violet: rgba(168, 85, 247, 0.22);
   --ct-grid: rgba(29, 29, 31, 0.05);
-  --ct-plate: var(--light);
+  /* Fixed white, not theme-aware: the portrait PNG has a hard-coded white
+     background (not transparent), so the plate must always match it or the
+     object-fit: contain letterboxing shows through as a mismatched gap
+     (this is invisible in light mode by coincidence, but shows as a stark
+     dark gap once --light flips to near-black in dark mode). */
+  --ct-plate: #ffffff;
 
   position: relative;
   overflow: hidden;
