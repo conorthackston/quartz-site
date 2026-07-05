@@ -185,6 +185,26 @@ th {
   border-bottom: 1px solid var(--lightgray);
 }
 
+// On mobile Quartz nests the page-header outside `.center`, so the child rule
+// above misses it and the theme's sticky treatment can leave the (often
+// multi-line) title pinned over the content on scroll. Force every header
+// container static on small screens, and stop the top-glow background from
+// being fixed (which janks / overlaps on mobile browsers).
+@media all and (max-width: 800px) {
+  .page-header,
+  .center > .page-header,
+  header,
+  .header,
+  .navbar {
+    position: static !important;
+    top: auto !important;
+  }
+
+  body {
+    background-attachment: scroll !important;
+  }
+}
+
 .page-title {
   font-size: 1.2rem;
 }

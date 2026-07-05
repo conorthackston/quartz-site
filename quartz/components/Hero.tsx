@@ -181,6 +181,8 @@ Hero.css = `
   border-radius: 50%;
   padding: 5px;
   background: var(--ct-plate);
+  /* Clip the portrait to a perfect circle no matter what global img rules do. */
+  overflow: hidden;
 }
 .ct-hero .ct-hero__plate img {
   width: 100%;

@@ -9,17 +9,22 @@ title: Conor Thackston
 
 ### 📂 Strategic Leadership
 [![Strategic Leadership](attachments/leadership-final.png)](<portfolio/Instructional Technology Portfolio>)
-- [[portfolio/Instructional Technology Portfolio|Instructional Tech, & Standards Hub]]
+- [[portfolio/Instructional Technology Portfolio|Instructional Tech &amp; Standards Hub]]
 
 ---
 
 ### 💡 Insights &amp; Vision
 [![Insights and Vision](attachments/vision-final.png)](<about/About Me>)
-- [[about/About Me|Philosophy, Blog, & Reflections]]
+- [[about/About Me|Philosophy, Blog &amp; Reflections]]
+
+---
+
+### 📚 Library Media
+- [[portfolio/Library Media Portfolio - AASL Standards|Library Media Portfolio Hub]]
 
 ---
 
 ### 📬 Connect
-- [📄 Resume](https://www.canva.com/design/DAFx7XiQI7I/qvCjyHRtr0BQzbEueUIMsQ/view?utm_content=DAFx7XiQI7I&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+- [📄 Resume](https://www.canva.com/design/DAFx7XiQI7l/qvCjyHRtr0BQzbEueUIMsQ/view)
 - [💼 LinkedIn](https://www.linkedin.com/in/conor-thackston-3912a8127)
 - [📧 Email Me](mailto:conorthackston@icloud.com)
