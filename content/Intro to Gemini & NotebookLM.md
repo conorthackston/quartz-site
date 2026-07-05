@@ -33,7 +33,7 @@ created: 2026-07-05
 - The Solution: With Gemini in Slides, you can type a prompt and generate unique, copyright-free, and culturally responsive images for your lessons in seconds. You no longer have to settle for "good enough" clipart.
 - Time Saved: 10–15 minutes per presentation.
 
-[![Alt Text](attachments/numberone.png)]([[Creating-and-grading-assessments]])
+[![Alt Text](attachments/numberone.png)]([[Assessments]])
 
 [![Alt Text](attachments/numbertwo.png)]([[Accessible-Learning]])
 
