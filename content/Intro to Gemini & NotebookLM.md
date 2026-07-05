@@ -35,14 +35,14 @@ created: 2026-07-05
 
 [![Alt Text](attachments/numberone.png)]([[Assessments]])
 
-[![Alt Text](attachments/numbertwo.png)]([[Accessible-Learning]])
+[![Alt Text](attachments/numbertwo.png)]([[Accessible Learning]])
 
-[![Alt Text](attachments/numberthree.png)]([[Custom-Support-for-Students]])
+[![Alt Text](attachments/numberthree.png)]([[Custom Support with Gems]])
 
-[![Alt Text](attachments/numberfour.png)]([[Instructional-Design]])
+[![Alt Text](attachments/numberfour.png)]([[Instructional Design]])
 
-[![Alt Text](attachments/numberfive.png)]([[Professional-Communication]])
+[![Alt Text](attachments/numberfive.png)]([[Professional Communication]])
 
-[![Alt Text](attachments/numbersix.png)]([[Creating-Educational-Games]])
+[![Alt Text](attachments/numbersix.png)]([[Creating Interactive Games]])
 
-[![Alt Text](attachments/numberseven.png)]([[Target-Page-Name]])
+[![Alt Text](attachments/numberseven.png)]([[Gemini for ALS]])
