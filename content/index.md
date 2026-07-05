@@ -8,8 +8,8 @@ title: Conor Thackston
      content cards. -->
 
 ### 📂 Strategic Leadership
-[![Strategic Leadership](attachments/leadership-final.png)](<portfolio/Instructional Technology Portfolio>)
-- [[portfolio/Instructional Technology Portfolio|Instructional Tech, & Standards Hub]]
+[![Strategic Leadership](attachments/leadership-final.png)](<Instructional Technology Portfolio.md>)
+- [[Instructional Technology Portfolio|Instructional Tech, & Standards Hub]]
 
 ---
 
@@ -20,7 +20,7 @@ title: Conor Thackston
 ---
 
 ### 📚 Library Media
-- [[portfolio/Library Media Portfolio - AASL Standards|Library Media Portfolio Hub]]
+- [[Library Media Portfolio - AASL Standards|Library Media Portfolio Hub]]
 
 ---
 

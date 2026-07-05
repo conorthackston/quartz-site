@@ -23,6 +23,6 @@ My passion for AI isn't just about the technology; it's about solving the **burn
 ---
 
 ### 🔗 Explore More
-- [[portfolio/Instructional Technology Portfolio|Instructional Technology Portfolio]]
+- [[Instructional Technology Portfolio|Instructional Technology Portfolio]]
 - [[Blogs]]
 - [💼 LinkedIn](https://www.linkedin.com/in/conor-thackston-3912a8127)
