@@ -14,8 +14,8 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/3 Learning Environments/School Overview]]|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/2 Learning Differences/School Library Community Analysis]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/3 Learning Environments/School Overview]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/2 Learning Differences/School Library Community Analysis]]|
 
   
   
@@ -28,7 +28,7 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/1 4 Learning Environment/Physical Facilities]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/1 4 Learning Environment/Physical Facilities]]|
 
   
   
@@ -39,8 +39,8 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/2 1 Planning for Instruction/Library Action Plan and Key Assessment]]|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/4 Content Knowledge/Ancient Egypt Pathfinder]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/2 1 Planning for Instruction/Library Action Plan and Key Assessment]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/4 Content Knowledge/Ancient Egypt Pathfinder]]|
 
   
   
@@ -51,7 +51,7 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/3 1 Curation of Sources/Critical Analysis of AI vs Traditional Reviews]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/3 1 Curation of Sources/Critical Analysis of AI vs Traditional Reviews]]|
 
   
   
@@ -62,9 +62,9 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/4 1 Access/Policies and Standards]]|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/4 1 Access/A Guide to Revising in Accordance with the ALA-AASL Framework]]|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/4 1 Access/Collection Development Policy Scenarios]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/4 1 Access/Policies and Standards]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/4 1 Access/A Guide to Revising in Accordance with the ALA-AASL Framework]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/4 1 Access/Collection Development Policy Scenarios]]|
 
   
   
@@ -73,8 +73,8 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/4 2 Organization of Collections/Weeding Books]]|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/4 2 Organization of Collections/The Case Against Genrefication]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/4 2 Organization of Collections/Weeding Books]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/4 2 Organization of Collections/The Case Against Genrefication]]|
 
   
   
@@ -83,7 +83,7 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/4 3 Evidence Based Decision Making/Library Impact Study]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/4 3 Evidence Based Decision Making/Library Impact Study]]|
 
   
   
@@ -92,7 +92,7 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/4 3 Intellectual Freedom/Book Banning]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/4 3 Intellectual Freedom/Book Banning]]|
 
   
   
@@ -101,8 +101,8 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/5 1 Advocacy/School Librarian Interview]]|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/5 1 Advocacy/Curriculum Driven Budget & Donor Advocacy]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/5 1 Advocacy/School Librarian Interview]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/5 1 Advocacy/Curriculum Driven Budget & Donor Advocacy]]|
 
   
   
@@ -111,7 +111,7 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[content/portfolio/Library Media Portfolio - AASL Standards/5 2 Leadership and Collaboration/School Library Vision and Mission Statement]]|
+|[[portfolio/Library Media Portfolio - AASL Standards/5 2 Leadership and Collaboration/School Library Vision and Mission Statement]]|
 
   
   
