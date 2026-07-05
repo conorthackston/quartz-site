@@ -1,0 +1,43 @@
+---
+title: "Intro to Gemini & NotebookLM"
+source: "https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/home"
+author:
+published:
+created: 2026-07-05
+description: "Slash Grading Time by Hours"
+tags:
+  - "clippings"
+---
+- The Struggle: Teachers often spend their nights and weekends grading written assessments, leaving little time for planning or rest.
+- The Solution: By connecting Google Forms to Gemini, you can automate the analysis of student writing. The AI applies your specific rubric to every response instantly, providing detailed, consistent feedback for 150 students in the time it usually takes to grade five.
+- Time Saved: Hours per week.
+
+## Differentiate in Clicks, Not Hours
+
+- The Struggle: Creating three different versions of a reading assignment (for ELL, IEP, and Advanced students) usually requires searching for multiple articles or rewriting text manually.
+- The Solution: With NotebookLM, you can upload a single grade-level text and instantly generate tiered versions, summaries, and vocabulary lists. You ensure every student accesses the same core curriculum without the manual "prep time" penalty.
+- Time Saved: 30–60 minutes per lesson.
+
+## End the Blank-Page Paralysis
+
+- The Struggle: Starting a lesson plan, rubric, or parent email from scratch is mentally draining and time-consuming.
+- The Solution: Using Gemini in Google Docs, you can generate a structured first draft in seconds. Whether it is a 5E lesson plan or a difficult email to a parent, the AI gets you 80% of the way there, so you only have to spend your energy on refining and personalizing.
+- Time Saved: 15–20 minutes per task.
+
+## Clone Yourself for 1:1 Student Support
+
+- The Struggle: In a class of 30, a teacher cannot physically answer every student's question immediately, leading to stalled learning.
+- The Solution: By building custom Gemini Gems (e.g., a "Socratic Math Tutor"), you create a safe, controlled AI assistant that helps students when you are busy working with others. Crucially, through intentional prompt engineering, these Gems can be tightly calibrated to ensure the vocabulary and concepts are developmentally appropriate, preventing the AI from generating resources that are too advanced for elementary ALS students or other specific learner groups.
+- Time Saved: Continuous in-class support.
+
+## Create Custom Visuals Instantly
+
+- The Struggle: Teachers waste valuable planning time scrolling through Google Images or stock photo sites looking for specific visuals that represent their diverse students.
+- The Solution: With Gemini in Slides, you can type a prompt and generate unique, copyright-free, and culturally responsive images for your lessons in seconds. You no longer have to settle for "good enough" clipart.
+- Time Saved: 10–15 minutes per presentation.
+
+<iframe frameborder="0" title="Custom embed" aria-label="Custom embed" src="https://www.gstatic.com/atari/embeds/8306a3600875750e6acc147fd93569bf/intermediate-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.9vdPKhB0RUg.O%2Fd%3D1%2Frs%3DAHpOoo97anj7zZ432JcN58tqJJp_A6WeOw%2Fm%3D__features__&amp;r=814440715"></iframe>
+
+Page updated
+
+Report abuse
