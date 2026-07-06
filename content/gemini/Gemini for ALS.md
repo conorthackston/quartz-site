@@ -1,8 +1,6 @@
 ---
 title: Gemini for ALS
 source: https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/gemini-for-als?authuser=1
-author:
-published:
 created: 2026-07-05
 description: Gemini for ALS
 ---

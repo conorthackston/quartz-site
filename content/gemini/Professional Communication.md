@@ -1,8 +1,6 @@
 ---
 title: "Professional Communication"
 source: "https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/professional-communication"
-author:
-published:
 created: 2026-07-05
 description: "Enhancing Communication 📩"
 tags:

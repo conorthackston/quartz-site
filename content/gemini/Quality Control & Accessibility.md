@@ -1,12 +1,11 @@
 ---
 title: Quality Control & Accessibility
 source: https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/quality-control-accessibility
-author:
-published:
 created: 2026-07-05
 description:
 ---
-[![Alt Text](attachments/Qualitycontrolpic.png)
+![Alt Text](attachments/Qualitycontrolpic.png)
+
 ## Quality Control & Accessibility
 
 ## Quality Control & Accessible Learning: The Human-in-the-Loop Framework

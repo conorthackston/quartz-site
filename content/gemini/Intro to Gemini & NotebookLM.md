@@ -33,16 +33,19 @@ created: 2026-07-05
 - The Solution: With Gemini in Slides, you can type a prompt and generate unique, copyright-free, and culturally responsive images for your lessons in seconds. You no longer have to settle for "good enough" clipart.
 - Time Saved: 10–15 minutes per presentation.
 
-[![Alt Text](attachments/numberone.png)]([[Assessments]])
+[![Alt Text](attachments/numberone.png)](Assessments)
 
-[![Alt Text](attachments/numbertwo.png)]([[Accessible Learning]])
+[![Alt Text](attachments/numbertwo.png)](Accessible%20Learning)
 
-[![Alt Text](attachments/numberthree.png)]([[Custom Support with Gems]])
+[![Alt Text](attachments/numberthree.png)](Custom%20Support%20with%20Gems)
 
-[![Alt Text](attachments/numberfour.png)]([[Instructional Design]])
+[![Alt Text](attachments/numberfour.png)](Instructional%20Design)
 
-[![Alt Text](attachments/numberfive.png)]([[Professional Communication]])
+[![Alt Text](attachments/numberfive.png)](Professional%20Communication)
 
-[![Alt Text](attachments/numbersix.png)]([[Creating Interactive Games]])
+[![Alt Text](attachments/numbersix.png)](Creating%20Interactive%20Games)
 
-[![Alt Text](attachments/numberseven.png)]([[Gemini for ALS]])
+[![Alt Text](attachments/numberseven.png)](Gemini%20for%20ALS)
+
+- [[Who Cares?|Why This Resource Exists]]
+- [[Quality Control & Accessibility]]

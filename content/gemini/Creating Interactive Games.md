@@ -1,8 +1,6 @@
 ---
 title: "Creating Interactive Games"
 source: "https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/creating-interactive-games"
-author:
-published:
 created: 2026-07-05
 description: "Using Gemini to Create Interactive Games 🎮"
 tags:

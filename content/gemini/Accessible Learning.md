@@ -1,8 +1,6 @@
 ---
 title: Accessible Learning
 source: https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/accessible-learning?authuser=1
-author:
-published:
 created: 2026-07-05
 description: Universal Design for Learning (UDL) with NotebookLM 📒
 tags:

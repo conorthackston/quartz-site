@@ -1,8 +1,6 @@
 ---
 title: Assessments
 source: https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/grading-assessments
-author:
-published:
 created: 2026-07-05
 description:
 ---
@@ -43,4 +41,4 @@ Attached is a Notebook from the video where you can experiment with using what w
 
 [NotebookLM Sandbox](https://notebooklm.google.com/notebook/e6c7ed61-cebb-4a4a-826b-f24488443af9)
 
-[![Alt Text](attachments/notebookgraphic.png)]([[https://notebooklm.google.com/notebook/e6c7ed61-cebb-4a4a-826b-f24488443af9]])
+[![Alt Text](attachments/notebookgraphic.png)](https://notebooklm.google.com/notebook/e6c7ed61-cebb-4a4a-826b-f24488443af9)

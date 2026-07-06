@@ -1,8 +1,6 @@
 ---
 title: Custom Support with Gems
 source: https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/custom-support-with-gemini-gems?authuser=1
-author:
-published:
 created: 2026-07-05
 description: Scaling 1:1 Tutoring with Gems 💎
 ---

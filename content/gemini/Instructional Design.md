@@ -1,8 +1,6 @@
 ---
 title: Instructional Design
 source: https://sites.google.com/hcpss.org/intro-to-gemini-notebooklm/instructional-design
-author:
-published:
 created: 2026-07-05
 ---
 ## Instructional Design
