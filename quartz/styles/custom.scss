@@ -453,6 +453,18 @@ body[data-slug^="resources"] {
   --ct-grad-page: linear-gradient(120deg, #fb923c, #f87171 50%, #ef4444);
 }
 
+// Gemini & NotebookLM — Google blue -> magenta, echoing the Gemini sparkle mark
+body[data-slug^="gemini"] {
+  --ct-accent: #4285f4;
+  --ct-accent-2: #b3319b;
+  --ct-grad-page: linear-gradient(120deg, #4285f4, #9163d0 50%, #b3319b);
+}
+:root[saved-theme="dark"] body[data-slug^="gemini"] {
+  --ct-accent: #7ba7ff;
+  --ct-accent-2: #e069c6;
+  --ct-grad-page: linear-gradient(120deg, #7ba7ff, #b088e0 50%, #e069c6);
+}
+
 // Faint blue + violet wash across the top of interior pages, painted into the
 // page background so it always sits behind the content.
 body:not([data-slug="index"]) {
