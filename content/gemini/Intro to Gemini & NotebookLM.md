@@ -33,19 +33,77 @@ created: 2026-07-05
 - The Solution: With Gemini in Slides, you can type a prompt and generate unique, copyright-free, and culturally responsive images for your lessons in seconds. You no longer have to settle for "good enough" clipart.
 - Time Saved: 10–15 minutes per presentation.
 
-[![Alt Text](attachments/numberone.png)](Assessments)
+## Explore the Workflows
 
-[![Alt Text](attachments/numbertwo.png)](Accessible%20Learning)
+<div class="gemini-step">
 
-[![Alt Text](attachments/numberthree.png)](Custom%20Support%20with%20Gems)
+[![1](attachments/numberone.png)](Assessments)
 
-[![Alt Text](attachments/numberfour.png)](Instructional%20Design)
+#### [Assessments](Assessments)
 
-[![Alt Text](attachments/numberfive.png)](Professional%20Communication)
+From Grading Fatigue to Instant Feedback 🎓
 
-[![Alt Text](attachments/numbersix.png)](Creating%20Interactive%20Games)
+</div>
 
-[![Alt Text](attachments/numberseven.png)](Gemini%20for%20ALS)
+<div class="gemini-step">
+
+[![2](attachments/numbertwo.png)](Accessible%20Learning)
+
+#### [Accessible Learning](Accessible%20Learning)
+
+Universal Design for Learning (UDL) with NotebookLM 📒
+
+</div>
+
+<div class="gemini-step">
+
+[![3](attachments/numberthree.png)](Custom%20Support%20with%20Gems)
+
+#### [Custom Support with Gems](Custom%20Support%20with%20Gems)
+
+Scaling 1:1 Tutoring with Gems 💎
+
+</div>
+
+<div class="gemini-step">
+
+[![4](attachments/numberfour.png)](Instructional%20Design)
+
+#### [Instructional Design](Instructional%20Design)
+
+Goodbye Teachers Pay Teachers 👋
+
+</div>
+
+<div class="gemini-step">
+
+[![5](attachments/numberfive.png)](Professional%20Communication)
+
+#### [Professional Communication](Professional%20Communication)
+
+Enhancing Communication 📩
+
+</div>
+
+<div class="gemini-step">
+
+[![6](attachments/numbersix.png)](Creating%20Interactive%20Games)
+
+#### [Creating Interactive Games](Creating%20Interactive%20Games)
+
+Using Gemini to Create Interactive Games 🎮
+
+</div>
+
+<div class="gemini-step">
+
+[![7](attachments/numberseven.png)](Gemini%20for%20ALS)
+
+#### [Gemini for ALS](Gemini%20for%20ALS)
+
+Precision Support for High-Intensity Needs
+
+</div>
 
 - [[Who Cares?|Why This Resource Exists]]
 - [[Quality Control & Accessibility]]

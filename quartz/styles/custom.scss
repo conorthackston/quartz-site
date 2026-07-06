@@ -465,6 +465,65 @@ body[data-slug^="gemini"] {
   --ct-grad-page: linear-gradient(120deg, #7ba7ff, #b088e0 50%, #e069c6);
 }
 
+// Gemini hub page — the "1-7" workflow images were exported at full slide
+// size (1280x656), so left plain they rendered as seven giant graphics
+// stacked down the page. Each is wrapped in a `.gemini-step` div pairing it
+// with a clickable heading + one-line subheading; shrink the numeral to an
+// icon-sized badge and lay the three out as a single row per step.
+body[data-slug^="gemini"] article .gemini-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.1rem 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid var(--lightgray);
+  background: color-mix(in srgb, var(--ct-accent) 3%, var(--light));
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  p:has(> a > img) {
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  a:has(> img) {
+    display: block;
+    background: none !important;
+  }
+
+  img {
+    display: block;
+    width: 2.75rem;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  h4 {
+    margin: 0 0 0.2rem;
+  }
+
+  h4 a {
+    background: none;
+  }
+
+  p:last-child {
+    margin: 0;
+    color: var(--gray);
+    font-size: 0.92rem;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--ct-accent) 40%, transparent);
+    box-shadow: 0 14px 30px -22px rgba(20, 20, 50, 0.5);
+  }
+}
+
 // Faint blue + violet wash across the top of interior pages, painted into the
 // page background so it always sits behind the content.
 body:not([data-slug="index"]) {

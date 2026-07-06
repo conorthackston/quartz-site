@@ -31,6 +31,8 @@ const ICON_PORTFOLIO =
   '<path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>'
 const ICON_BLOGS =
   '<path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/>'
+const ICON_GEMINI =
+  '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>'
 
 const ITEMS: QuickNavItem[] = [
   {
@@ -60,6 +62,13 @@ const ITEMS: QuickNavItem[] = [
     slugPrefix: "blogs",
     gradient: "linear-gradient(160deg, #0891b2, #6366f1 55%, #a855f7)",
     icon: ICON_BLOGS,
+  },
+  {
+    label: "Gemini",
+    href: "/gemini/intro-to-gemini--and--notebooklm",
+    slugPrefix: "gemini",
+    gradient: "linear-gradient(160deg, #4285f4, #9163d0 55%, #b3319b)",
+    icon: ICON_GEMINI,
   },
 ]
 
