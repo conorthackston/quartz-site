@@ -9,7 +9,7 @@ title: Conor Thackston
 
 ### ✨ Gemini &amp; NotebookLM
 
-[![Gemini and NotebookLM](attachments/AI-hero.png)](<Intro to Gemini & NotebookLM.md>)
+[![Gemini and NotebookLM](attachments/AImedia-hero.png)](<Intro to Gemini & NotebookLM.md>)
 
 - [[Intro to Gemini & NotebookLM|AI Workflows for the Classroom]]
 
@@ -25,7 +25,7 @@ title: Conor Thackston
 
 ### 📂 Strategic Leadership
 
-[![Strategic Leadership](attachments/leadership-final.png)](<Instructional Technology Portfolio.md>)
+[![Strategic Leadership](attachments/updatedleadershiphero.png)](<Instructional Technology Portfolio.md>)
 
 - [[Instructional Technology Portfolio|Instructional Tech & Standards Hub]]
 
@@ -33,7 +33,7 @@ title: Conor Thackston
 
 ### 💡 Insights &amp; Vision
 
-[![Insights and Vision](attachments/vision-final.png)](<about/About Me>)
+[![Insights and Vision](attachments/updatedvision.png)](<about/About Me>)
 
 - [[about/About Me|Philosophy, Blog, & Reflections]]
 
