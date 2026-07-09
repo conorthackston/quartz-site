@@ -9,13 +9,15 @@ title: Conor Thackston
 
 ### ✨ Gemini &amp; NotebookLM
 
-[![Gemini and NotebookLM](attachments/notebooklm-and-gemini-logos-with-a-notebooks-menu.avif)](<Intro to Gemini & NotebookLM.md>)
+[![Gemini and NotebookLM](attachments/AI-hero.png)](<Intro to Gemini & NotebookLM.md>)
 
 - [[Intro to Gemini & NotebookLM|AI Workflows for the Classroom]]
 
 ---
 
 ### 📚 Library Media
+
+[![Library Media](attachments/library-media-hero.png)](<Library Media Portfolio - AASL Standards.md>)
 
 - [[Library Media Portfolio - AASL Standards|Library Media Portfolio Hub]]
 
