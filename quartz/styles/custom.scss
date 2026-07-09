@@ -175,14 +175,24 @@ th {
   }
 }
 
-// Slim, sticky top bar (site name / search / dark-mode) instead of the
-// default page-header's large top margin meant for the old sidebar layout.
+// Slim top bar (site name / search / dark-mode) instead of the default
+// page-header's large top margin meant for the old sidebar layout. The flat
+// hairline underneath is swapped for a soft gradient rule so the very top of
+// the page already carries a hint of the accent color.
 .center > .page-header {
   position: static;
   margin-top: 0;
   padding-top: 1.1rem;
   padding-bottom: 1.1rem;
-  border-bottom: 1px solid var(--lightgray);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--ct-accent) 45%, transparent),
+      color-mix(in srgb, var(--ct-accent-2) 38%, transparent),
+      transparent
+    )
+    1;
 }
 
 // On mobile Quartz nests the page-header outside `.center`, so the child rule
@@ -442,10 +452,26 @@ body[data-slug="index"] {
   --ct-grad-line: linear-gradient(90deg, var(--ct-accent), var(--ct-accent-2));
   --ct-glow-a: var(--ct-accent);
   --ct-glow-b: var(--ct-accent-2);
+
+  // --- Depth / "glass" design tokens ---------------------------------------
+  // Shared surface language for every raised element (cards, callouts, nav,
+  // steps). Frosted translucent fill + a bright top hairline that reads as
+  // light catching the top edge, over a soft, accent-tinted drop shadow. The
+  // dark-mode overrides below re-point these so the same rules give a lit,
+  // three-dimensional card in either theme.
+  --ct-card-bg: color-mix(in srgb, var(--light) 82%, transparent);
+  --ct-card-border: color-mix(in srgb, var(--ct-accent) 16%, var(--lightgray));
+  --ct-card-hi: rgba(255, 255, 255, 0.7); // top-edge specular highlight
+  --ct-card-shadow: rgba(30, 30, 70, 0.14); // ambient shadow tint
 }
 :root[saved-theme="dark"] {
   --ct-accent-2: #c084fc;
   --ct-grad-page: linear-gradient(120deg, #2997ff, #7c8bff 45%, #c084fc);
+
+  --ct-card-bg: color-mix(in srgb, var(--lightgray) 55%, transparent);
+  --ct-card-border: color-mix(in srgb, var(--ct-accent) 26%, var(--lightgray));
+  --ct-card-hi: rgba(255, 255, 255, 0.09);
+  --ct-card-shadow: rgba(0, 0, 0, 0.55);
 }
 
 // ---------------------------------------------------------------------------
@@ -540,10 +566,17 @@ body[data-slug^="gemini"] article .gemini-step {
   row-gap: 0.15rem;
   padding: 1rem 1.15rem;
   border-radius: 16px;
-  border: 1px solid var(--lightgray);
-  background: color-mix(in srgb, var(--ct-accent) 3%, var(--light));
+  border: 1px solid var(--ct-card-border);
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--ct-accent) 7%, var(--ct-card-bg)),
+    var(--ct-card-bg)
+  );
+  backdrop-filter: blur(14px) saturate(1.35);
   text-decoration: none;
-  box-shadow: none;
+  box-shadow:
+    inset 0 1px 0 var(--ct-card-hi),
+    0 16px 34px -28px color-mix(in srgb, var(--ct-accent) 40%, var(--ct-card-shadow));
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -582,27 +615,56 @@ body[data-slug^="gemini"] article .gemini-step {
 
   &:hover {
     transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--ct-accent) 45%, transparent);
-    box-shadow: 0 16px 32px -24px rgba(20, 20, 50, 0.55);
+    border-color: color-mix(in srgb, var(--ct-accent) 55%, transparent);
+    box-shadow:
+      inset 0 1px 0 var(--ct-card-hi),
+      0 22px 40px -24px color-mix(in srgb, var(--ct-accent) 55%, var(--ct-card-shadow));
   }
 }
 
-// Faint blue + violet wash across the top of interior pages, painted into the
-// page background so it always sits behind the content.
-body:not([data-slug="index"]) {
+// Site-wide ambient background. A flat dark fill is what made the site read as
+// "one-dimensional"; instead every page now sits on three large, fixed color
+// pools (accent top-left, accent-2 top-right, a soft resolve at the bottom)
+// that bleed the section's palette into the whole viewport. Applied to every
+// page including the homepage, so the hero, cards and prose all share one lit
+// atmosphere instead of floating on black.
+body {
   background-image:
     radial-gradient(
-      600px 340px at 15% -120px,
-      color-mix(in srgb, var(--ct-glow-a) 16%, transparent),
-      transparent 70%
+      760px 460px at 12% -12%,
+      color-mix(in srgb, var(--ct-glow-a) 18%, transparent),
+      transparent 62%
     ),
     radial-gradient(
-      560px 320px at 88% -140px,
-      color-mix(in srgb, var(--ct-glow-b) 15%, transparent),
-      transparent 70%
+      720px 460px at 90% -6%,
+      color-mix(in srgb, var(--ct-glow-b) 17%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      900px 620px at 50% 118%,
+      color-mix(in srgb, var(--ct-accent-2) 12%, transparent),
+      transparent 60%
     );
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+// Ultra-fine grain laid over everything. This is the single biggest cure for
+// the flat, banded "digital" look: it breaks up the large gradient fields into
+// a soft, film-like surface. Fixed, non-interactive, and behind all content.
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+:root[saved-theme="dark"] body::before {
+  opacity: 0.28;
+  mix-blend-mode: soft-light;
 }
 
 // The big page title (from the frontmatter) rendered in the gradient — the
@@ -611,11 +673,14 @@ body:not([data-slug="index"]) {
   .page-header h1,
   .article-title {
     background: var(--ct-grad-page);
+    background-size: 220% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     letter-spacing: -0.03em;
+    // Slow, subtle drift so the gradient title catches light like the hero.
+    animation: ctTitleShine 9s ease-in-out infinite;
   }
 
   // The date / reading-time line set in mono, like the hero eyebrow.
@@ -642,14 +707,19 @@ body:not([data-slug="index"]) {
   }
 
   // Callouts get a subtle two-tone gradient tint over their existing type
-  // color, so they read as designed cards rather than plain grey boxes.
+  // color, plus the shared glass treatment: a frosted blur, a lit top edge,
+  // and a soft accent-tinted shadow so they read as designed cards.
   .callout {
     background: linear-gradient(
       135deg,
-      color-mix(in srgb, var(--ct-accent) 9%, var(--light)),
-      color-mix(in srgb, var(--ct-accent-2) 6%, var(--light))
+      color-mix(in srgb, var(--ct-accent) 11%, var(--ct-card-bg)),
+      color-mix(in srgb, var(--ct-accent-2) 8%, var(--ct-card-bg))
     );
-    border: 1px solid color-mix(in srgb, var(--ct-accent) 22%, transparent);
+    border: 1px solid color-mix(in srgb, var(--ct-accent) 24%, transparent);
+    backdrop-filter: blur(14px) saturate(1.35);
+    box-shadow:
+      inset 0 1px 0 var(--ct-card-hi),
+      0 20px 44px -30px color-mix(in srgb, var(--ct-accent) 45%, var(--ct-card-shadow));
   }
 
   // Section dividers become soft fading gradient lines to match the homepage.
@@ -780,6 +850,8 @@ body:not([data-slug="index"]) {
 }
 
 .section-ul > .section-li > .section {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -787,19 +859,56 @@ body:not([data-slug="index"]) {
   height: 100%;
   padding: 1.1rem 1.15rem 1.2rem;
   border-radius: 16px;
-  border: 1px solid var(--lightgray);
-  background: color-mix(in srgb, var(--ct-accent) 3%, var(--light));
-  box-shadow: 0 14px 32px -26px rgba(20, 20, 50, 0.55);
+  border: 1px solid var(--ct-card-border);
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--ct-accent) 8%, var(--ct-card-bg)),
+    var(--ct-card-bg)
+  );
+  backdrop-filter: blur(14px) saturate(1.35);
+  box-shadow:
+    inset 0 1px 0 var(--ct-card-hi),
+    0 16px 36px -28px color-mix(in srgb, var(--ct-accent) 45%, var(--ct-card-shadow));
   transition:
     transform 0.22s ease,
     box-shadow 0.22s ease,
     border-color 0.22s ease;
 }
 
+// A diagonal sheen that sweeps across the card on hover — the "shine".
+.section-ul > .section-li > .section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    color-mix(in srgb, var(--ct-card-hi) 55%, transparent) 47%,
+    color-mix(in srgb, var(--ct-accent) 22%, transparent) 50%,
+    transparent 68%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
 .section-ul > .section-li > .section:hover {
   transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--ct-accent) 45%, transparent);
-  box-shadow: 0 22px 42px -26px rgba(20, 20, 50, 0.6);
+  border-color: color-mix(in srgb, var(--ct-accent) 55%, transparent);
+  box-shadow:
+    inset 0 1px 0 var(--ct-card-hi),
+    0 26px 46px -26px color-mix(in srgb, var(--ct-accent) 55%, var(--ct-card-shadow));
+}
+
+.section-ul > .section-li > .section:hover::before {
+  transform: translateX(120%);
+}
+
+// Keep the card's real content above the sheen layer.
+.section-ul .section > * {
+  position: relative;
+  z-index: 1;
 }
 
 // Date becomes a small mono pill in the section accent.
@@ -861,4 +970,28 @@ body:not([data-slug="index"]) {
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--ct-accent);
+}
+
+// ============================================================================
+// Motion — a slow drift on gradient titles so they read as lit rather than
+// printed. Honors reduced-motion by freezing the animation and any card sheen.
+// ============================================================================
+@keyframes ctTitleShine {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not([data-slug="index"]) .page-header h1,
+  body:not([data-slug="index"]) .article-title {
+    animation: none !important;
+  }
+  .section-ul > .section-li > .section::before {
+    transition: none !important;
+  }
 }
