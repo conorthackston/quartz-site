@@ -649,22 +649,23 @@ body {
   background-attachment: fixed;
 }
 
-// Ultra-fine grain laid over everything. This is the single biggest cure for
-// the flat, banded "digital" look: it breaks up the large gradient fields into
-// a soft, film-like surface. Fixed, non-interactive, and behind all content.
+// A whisper of fine grain over everything — just enough to take the hard,
+// banded edge off the large gradient fields and give the page a soft, matte
+// finish (not the gritty "sandpaper" of a heavy overlay). High-frequency,
+// low-opacity, and blended soft-light so it reads as texture, not noise.
+// Fixed, non-interactive, and behind all content.
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.5;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
 }
 :root[saved-theme="dark"] body::before {
-  opacity: 0.28;
-  mix-blend-mode: soft-light;
+  opacity: 0.06;
 }
 
 // The big page title (from the frontmatter) rendered in the gradient — the
@@ -847,6 +848,12 @@ body:not([data-slug="index"]) {
 
 .section-ul > .section-li {
   margin: 0;
+  // The grid item is a flex column so the card stretches to the full row
+  // height WITHOUT a percentage height (which collapsed the auto grid row and
+  // let tall cards spill over the next one). The card fills this box via
+  // `flex: 1` below.
+  display: flex;
+  flex-direction: column;
 }
 
 .section-ul > .section-li > .section {
@@ -856,7 +863,7 @@ body:not([data-slug="index"]) {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.7rem;
-  height: 100%;
+  flex: 1;
   padding: 1.1rem 1.15rem 1.2rem;
   border-radius: 16px;
   border: 1px solid var(--ct-card-border);
