@@ -35,73 +35,42 @@ created: 2026-07-05
 
 ## Explore the Workflows
 
-<div class="gemini-step">
+<div class="gemini-steps">
 
-[![1](attachments/numberone.png)](Assessments)
+<a class="gemini-step" href="Assessments">
+<span class="gemini-step-title">Assessments</span>
+<span class="gemini-step-desc">From Grading Fatigue to Instant Feedback 🎓</span>
+</a>
 
-#### [Assessments](Assessments)
+<a class="gemini-step" href="Accessible%20Learning">
+<span class="gemini-step-title">Accessible Learning</span>
+<span class="gemini-step-desc">Universal Design for Learning (UDL) with NotebookLM 📒</span>
+</a>
 
-From Grading Fatigue to Instant Feedback 🎓
+<a class="gemini-step" href="Custom%20Support%20with%20Gems">
+<span class="gemini-step-title">Custom Support with Gems</span>
+<span class="gemini-step-desc">Scaling 1:1 Tutoring with Gems 💎</span>
+</a>
 
-</div>
+<a class="gemini-step" href="Instructional%20Design">
+<span class="gemini-step-title">Instructional Design</span>
+<span class="gemini-step-desc">Goodbye Teachers Pay Teachers 👋</span>
+</a>
 
-<div class="gemini-step">
+<a class="gemini-step" href="Professional%20Communication">
+<span class="gemini-step-title">Professional Communication</span>
+<span class="gemini-step-desc">Enhancing Communication 📩</span>
+</a>
 
-[![2](attachments/numbertwo.png)](Accessible%20Learning)
+<a class="gemini-step" href="Creating%20Interactive%20Games">
+<span class="gemini-step-title">Creating Interactive Games</span>
+<span class="gemini-step-desc">Using Gemini to Create Interactive Games 🎮</span>
+</a>
 
-#### [Accessible Learning](Accessible%20Learning)
-
-Universal Design for Learning (UDL) with NotebookLM 📒
-
-</div>
-
-<div class="gemini-step">
-
-[![3](attachments/numberthree.png)](Custom%20Support%20with%20Gems)
-
-#### [Custom Support with Gems](Custom%20Support%20with%20Gems)
-
-Scaling 1:1 Tutoring with Gems 💎
-
-</div>
-
-<div class="gemini-step">
-
-[![4](attachments/numberfour.png)](Instructional%20Design)
-
-#### [Instructional Design](Instructional%20Design)
-
-Goodbye Teachers Pay Teachers 👋
-
-</div>
-
-<div class="gemini-step">
-
-[![5](attachments/numberfive.png)](Professional%20Communication)
-
-#### [Professional Communication](Professional%20Communication)
-
-Enhancing Communication 📩
-
-</div>
-
-<div class="gemini-step">
-
-[![6](attachments/numbersix.png)](Creating%20Interactive%20Games)
-
-#### [Creating Interactive Games](Creating%20Interactive%20Games)
-
-Using Gemini to Create Interactive Games 🎮
-
-</div>
-
-<div class="gemini-step">
-
-[![7](attachments/numberseven.png)](Gemini%20for%20ALS)
-
-#### [Gemini for ALS](Gemini%20for%20ALS)
-
-Precision Support for High-Intensity Needs
+<a class="gemini-step" href="Gemini%20for%20ALS">
+<span class="gemini-step-title">Gemini for ALS</span>
+<span class="gemini-step-desc">Precision Support for High-Intensity Needs</span>
+</a>
 
 </div>
 
