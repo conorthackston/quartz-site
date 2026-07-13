@@ -48,7 +48,7 @@ As I wrap up my first year of teaching in a new position, I have collected and r
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[Portfolio/Instructional-Technology-Portfolio/Collaborator/Personalization and Embodiment Principle]]|
+|[[Portfolio/ISTE Artifacts/Collaborator/Personalization and Embodiment Principle]]|
 |[[Infographic with Rationale]]|
 |[[Case Study Collaboration]]|
 
@@ -60,7 +60,7 @@ As I wrap up my first year of teaching in a new position, I have collected and r
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
 |[[Designing an Effective Interface Program]]|
-|[[Portfolio/Instructional-Technology-Portfolio/Learning Designer/Personalization and Embodiment Principles Overview]]|
+|[[Portfolio/ISTE Artifacts/Learning Designer/Personalization and Embodiment Principles Overview]]|
 |[[Designing a Lesson with Students & Technology in Mind]]|
 
   
@@ -71,8 +71,8 @@ As I wrap up my first year of teaching in a new position, I have collected and r
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
 |[[Professional Learning Facilitator Plan]]|
-|[[Portfolio/Instructional-Technology-Portfolio/Professional Learning Facilitator/Personalization and Embodiment Principles Overview\|Personalization and Embodiment Principles Overview]]|
-|[[Portfolio/Instructional-Technology-Portfolio/Professional Learning Facilitator/Personalization and Embodiment Principle\|Personalization and Embodiment Principle]]|
+|[[Portfolio/ISTE Artifacts/Professional Learning Facilitator/Personalization and Embodiment Principles Overview\|Personalization and Embodiment Principles Overview]]|
+|[[Portfolio/ISTE Artifacts/Professional Learning Facilitator/Personalization and Embodiment Principle\|Personalization and Embodiment Principle]]|
 
   
   

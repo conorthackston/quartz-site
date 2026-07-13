@@ -493,19 +493,28 @@ export async function loadQuartzConfig(
   // Load layout and add PageTypeDispatcher to emitters.
   // This must happen after plugin instantiation so the component registry is populated.
   const layout = await loadQuartzLayout()
-  // Prepend the local Hero component to beforeBody so it renders at the top
-  // of the page shell. Hero self-guards to the homepage (fileData.slug ===
-  // "index"), so this stays a no-op on every other page. Any page type with
-  // its own quartz.config.yaml `byPageType` entry gets an independently-built
-  // beforeBody array (see loadQuartzLayout above), so prepending only to
-  // `defaults` would silently miss those types — inject into all of them.
-  layout.defaults.beforeBody = [Hero(), ...(layout.defaults.beforeBody ?? [])]
+  // Insert the local Hero component into beforeBody just AFTER the first
+  // entry. beforeBody arrives sorted by priority with the topnav group
+  // (site title / search / dark mode) first, so this puts the slim nav bar
+  // at the very top of the page with the hero directly beneath it —
+  // Apple-style ordering. Hero self-guards to the homepage (fileData.slug
+  // === "index"), so this stays a no-op on every other page. Any page type
+  // with its own quartz.config.yaml `byPageType` entry gets an
+  // independently-built beforeBody array (see loadQuartzLayout above), so
+  // injecting only into `defaults` would silently miss those types —
+  // inject into all of them.
+  const withHero = (beforeBody?: typeof layout.defaults.beforeBody) => {
+    const items = [...(beforeBody ?? [])]
+    items.splice(Math.min(1, items.length), 0, Hero())
+    return items
+  }
+  layout.defaults.beforeBody = withHero(layout.defaults.beforeBody)
   // QuickNav is fixed-position and renders on every page (no slug guard), so
   // DOM placement doesn't matter — afterBody keeps it out of the way of
   // beforeBody's Hero/title/breadcrumb ordering.
   layout.defaults.afterBody = [...(layout.defaults.afterBody ?? []), QuickNav()]
   for (const pageTypeLayout of Object.values(layout.byPageType)) {
-    pageTypeLayout.beforeBody = [Hero(), ...(pageTypeLayout.beforeBody ?? [])]
+    pageTypeLayout.beforeBody = withHero(pageTypeLayout.beforeBody)
     pageTypeLayout.afterBody = [...(pageTypeLayout.afterBody ?? []), QuickNav()]
   }
   plugins.emitters.push(

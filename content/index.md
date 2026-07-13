@@ -3,9 +3,13 @@ title: Conor Thackston
 ---
 
 <!-- The hero (portrait, name, "Innovation. Guided by Pedagogy.", intro line, and
-     Resume / LinkedIn / Email actions) is now rendered by the Hero.tsx component
-     above the page body on the homepage. Keep the sections below for the landing
-     content cards. -->
+     Resume / LinkedIn / Email actions) is rendered by the Hero.tsx component
+     above the page body. Each section below is wrapped in a .home-panel div;
+     custom.scss alternates the panels between dark and light surfaces
+     (Apple-style contrast bands) via :nth-of-type, so keep the order in mind
+     when adding sections: odd panels render dark, even panels render light. -->
+
+<div class="home-panel">
 
 ### ✨ Gemini &amp; NotebookLM
 
@@ -13,7 +17,9 @@ title: Conor Thackston
 
 - [[Intro to Gemini & NotebookLM|AI Workflows for the Classroom]]
 
----
+</div>
+
+<div class="home-panel">
 
 ### 📚 Library Media
 
@@ -21,7 +27,9 @@ title: Conor Thackston
 
 - [[Library Media Portfolio - AASL Standards|Library Media Portfolio Hub]]
 
----
+</div>
+
+<div class="home-panel">
 
 ### 📂 Strategic Leadership
 
@@ -29,7 +37,9 @@ title: Conor Thackston
 
 - [[Instructional Technology Portfolio|Instructional Tech & Standards Hub]]
 
----
+</div>
+
+<div class="home-panel">
 
 ### 💡 Insights &amp; Vision
 
@@ -37,10 +47,14 @@ title: Conor Thackston
 
 - [[about/About Me|Philosophy, Blog, & Reflections]]
 
----
+</div>
+
+<div class="home-panel">
 
 ### 📬 Connect
 
 - [📄 Resume](https://www.canva.com/design/DAFx7XiQI7I/qvCjyHRtr0BQzbEueUIMsQ/view?utm_content=DAFx7XiQI7I&utm_campaign=designshare&utm_medium=link&utm_source=viewer)
 - [💼 LinkedIn](https://www.linkedin.com/in/conor-thackston-3912a8127)
 - [📧 Email Me](mailto:conorthackston@icloud.com)
+
+</div>

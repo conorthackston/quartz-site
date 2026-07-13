@@ -18,8 +18,8 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/2 Learning Differences/School Library Community Analysis\|School Library Community Analysis]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/2 Learning Differences/Critical Analysis of AI vs Traditional Reviews\|Critical Analysis of AI vs Traditional Reviews]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/2 Learning Differences/School Library Community Analysis\|School Library Community Analysis]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/2 Learning Differences/Critical Analysis of AI vs Traditional Reviews\|Critical Analysis of AI vs Traditional Reviews]]|
 
   
   
@@ -30,8 +30,8 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/3 Learning Environments/School Overview\|School Overview]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/3 Learning Environments/Physical Facilities\|Physical Facilities]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/3 Learning Environments/School Overview\|School Overview]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/3 Learning Environments/Physical Facilities\|Physical Facilities]]|
 
   
   
@@ -42,7 +42,7 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/4 Content Knowledge/Ancient Egypt Pathfinder\|Ancient Egypt Pathfinder]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/4 Content Knowledge/Ancient Egypt Pathfinder\|Ancient Egypt Pathfinder]]|
 
   
   
@@ -53,12 +53,12 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/A Guide to Revising in Accordance with the ALA-AASL Framework\|A Guide to Revising in Accordance with the ALA-AASL Framework]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Book Banning\|Book Banning]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Collection Development Policy Scenarios\|Collection Development Policy Scenarios]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Weeding Books\|Weeding Books]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Policies and Standards\|Policies and Standards]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Library Impact Study\|Library Impact Study]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/A Guide to Revising in Accordance with the ALA-AASL Framework\|A Guide to Revising in Accordance with the ALA-AASL Framework]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Book Banning\|Book Banning]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Collection Development Policy Scenarios\|Collection Development Policy Scenarios]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Weeding Books\|Weeding Books]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Policies and Standards\|Policies and Standards]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/9 Learning and Ethical Practice/Library Impact Study\|Library Impact Study]]|
 
   
   
@@ -67,11 +67,11 @@ date: 2026-07-04
 
 |![](https://app.notion.com/icons/font_gray.svg)Name|
 |---|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/Library Action Plan and Key Assessment\|Library Action Plan and Key Assessment]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/School Library Vision and Mission Statement\|School Library Vision and Mission Statement]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/Curriculum Driven Budget & Donor Advocacy\|Curriculum Driven Budget & Donor Advocacy]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/School Librarian Interview\|School Librarian Interview]]|
-|[[Portfolio/Library Media Portfolio - AASL Standards/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/The Case Against Genrefication\|The Case Against Genrefication]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/Library Action Plan and Key Assessment\|Library Action Plan and Key Assessment]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/School Library Vision and Mission Statement\|School Library Vision and Mission Statement]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/Curriculum Driven Budget & Donor Advocacy\|Curriculum Driven Budget & Donor Advocacy]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/School Librarian Interview\|School Librarian Interview]]|
+|[[Portfolio/AASL Artifacts/Library Media Portfolio - InTASC Principles/10 Leadership and Collaboration/The Case Against Genrefication\|The Case Against Genrefication]]|
 
   
   

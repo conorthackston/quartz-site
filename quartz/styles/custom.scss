@@ -176,23 +176,52 @@ th {
 }
 
 // Slim top bar (site name / search / dark-mode) instead of the default
-// page-header's large top margin meant for the old sidebar layout. The flat
-// hairline underneath is swapped for a soft gradient rule so the very top of
-// the page already carries a hint of the accent color.
+// page-header's large top margin meant for the old sidebar layout.
+// NOTE: .page-header wraps ALL beforeBody components (nav row, hero on the
+// homepage, breadcrumbs/title/meta on notes), so the header block itself must
+// never be sticky or carry the nav's chrome. The nav row is the FIRST
+// .flex-component inside it — that row alone becomes the fixed glass bar.
 .center > .page-header {
   position: static;
   margin-top: 0;
   padding-top: 1.1rem;
   padding-bottom: 1.1rem;
-  border-bottom: 1px solid transparent;
-  border-image: linear-gradient(
-      90deg,
-      transparent,
-      color-mix(in srgb, var(--ct-accent) 45%, transparent),
-      color-mix(in srgb, var(--ct-accent-2) 38%, transparent),
-      transparent
-    )
-    1;
+
+  // On mobile the nav row stays in-flow, so the soft gradient hairline lives
+  // on the header block like before.
+  @media all and ($mobile) {
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in srgb, var(--ct-accent) 45%, transparent),
+        color-mix(in srgb, var(--ct-accent-2) 38%, transparent),
+        transparent
+      )
+      1;
+  }
+}
+
+// Desktop: fixed frosted-glass nav bar across the top of the viewport,
+// Apple-style. The bar spans full width; its padding recenters the contents
+// onto the same 46rem reading column as the rest of the page. body gets a
+// matching top offset so nothing hides underneath.
+@media all and (min-width: 801px) {
+  body {
+    padding-top: 3.4rem;
+  }
+
+  .page-header .popover-hint > .flex-component:first-child {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    padding: 0.65rem max(1.5rem, calc(50vw - 23rem + 1.5rem));
+    background: color-mix(in srgb, var(--light) 60%, transparent);
+    backdrop-filter: blur(18px) saturate(1.4);
+    border-bottom: 1px solid color-mix(in srgb, var(--ct-accent) 22%, transparent);
+  }
 }
 
 // On mobile Quartz nests the page-header outside `.center`, so the child rule
@@ -279,53 +308,67 @@ th {
 }
 
 // ----------------------------------------------------------------------------
-// Homepage — the hero (portrait, name, gradient tagline, actions) is now the
-// Hero.tsx component rendered in `beforeBody` (see quartz.ts). The old markdown
-// hero and its CSS treatment (circular first image, oversized first h1/h2) have
-// been removed so they can't clash with the component or restyle the landing
-// cards below it. Only page-level chrome tweaks remain here.
+// Homepage — the hero (portrait, name, gradient tagline, actions) is the
+// Hero.tsx component rendered in `beforeBody` (see config-loader.ts), below
+// the slim topnav. Each landing section in index.md is wrapped in a
+// `.home-panel` div, and the panels alternate between DARK and LIGHT surfaces
+// in both themes — the Apple-homepage move where black and white product
+// cards sit side by side on one page for maximum contrast. Dark panels reuse
+// the hero's dot-grid texture plus a corner glow; light panels get a soft
+// radial sheen. Each panel carries its own accent hue for the eyebrow + CTA,
+// so the color pops stay section-specific against the neutral surfaces.
 // ----------------------------------------------------------------------------
 body[data-slug="index"] {
   // Blue -> indigo -> violet gradient, matched to Hero.tsx and themed per mode.
   --ct-grad: linear-gradient(120deg, #0071e3, #5b6bff 45%, #a855f7);
 
-  // Let the hero own the top of the page — drop the sticky/blur nav treatment
-  // on the homepage so the component reads as a full landing header.
-  .center > .page-header {
-    position: static;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-bottom: none;
-    background-color: transparent;
-  }
-
   .center > article {
     text-align: center;
+  }
 
-    // Section headings ("📂 Strategic Leadership" etc.) become small, spaced
-    // eyebrow labels in the accent color — quieter than the framed image below.
+  .home-panel {
+    // Per-panel theme hooks, overridden per :nth-of-type below.
+    --panel-accent: #5b6bff;
+    --panel-grad: var(--ct-grad);
+
+    position: relative;
+    overflow: hidden;
+    margin: 1.4rem 0;
+    padding: clamp(2.25rem, 5vw, 3.25rem) clamp(1.25rem, 4vw, 2.5rem);
+    border-radius: 28px;
+
+    // Content sits above the texture layers.
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    // Eyebrow label in the panel's accent.
     h3 {
       font-family: var(--codeFont), monospace;
       font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--secondary);
-      margin: 0 0 1rem;
+      color: var(--panel-accent);
+      margin: 0 0 1.4rem;
+      border: none;
     }
 
-    // Feature images become premium framed cards with a uniform crop, soft
-    // border/shadow, and a gentle hover lift.
+    // Feature images: premium framed cards with a uniform crop and hover lift.
     p:has(> img),
     p:has(> a > img) {
       margin: 0;
     }
 
-    // Each image is wrapped in a link to the same destination as its button —
-    // strip the default internal-link tint so only the framed card shows.
+    // The image link must be a full-width block: with inline-block the
+    // anchor shrink-wraps a lazily-loading image whose own width:100% then
+    // resolves against the collapsed anchor — a circular sizing that
+    // renders the image 2px wide.
     p a:has(> img),
     p a.internal:has(> img) {
-      display: inline-block;
+      display: block;
+      width: 100%;
       background: none !important;
       border-radius: 20px;
     }
@@ -337,19 +380,18 @@ body[data-slug="index"] {
       aspect-ratio: 16 / 9;
       object-fit: cover;
       border-radius: 20px;
-      border: 1px solid var(--lightgray);
-      box-shadow: 0 18px 38px -22px rgba(20, 20, 50, 0.45);
+      box-shadow: 0 18px 38px -22px rgba(10, 10, 30, 0.5);
       transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
     }
 
     img:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 26px 50px -24px rgba(20, 20, 50, 0.55);
+      transform: translateY(-5px) scale(1.005);
+      box-shadow: 0 26px 50px -24px rgba(10, 10, 30, 0.6);
     }
 
-    // Link lists become a centered row of pill buttons instead of bare bullets.
+    // Link lists become a centered row of pill buttons.
     ul {
       list-style: none;
       display: flex;
@@ -357,51 +399,34 @@ body[data-slug="index"] {
       gap: 0.7rem;
       justify-content: center;
       padding: 0;
-      margin: 1.25rem 0 0;
+      margin: 1.4rem 0 0;
     }
 
     li {
       margin: 0;
     }
 
-    ul li a {
+    // Single-link sections get the gradient CTA; multi-link (Connect) get
+    // neutral chips styled per panel tone below.
+    li:only-child a,
+    li:only-child a.internal {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.7rem 1.3rem;
+      padding: 0.75rem 1.4rem;
       border-radius: 30px;
       font-size: 0.95rem;
       font-weight: 600;
       text-decoration: none;
-      color: var(--dark);
-      background: color-mix(in srgb, var(--darkgray) 6%, transparent);
-      border: 1px solid color-mix(in srgb, var(--darkgray) 14%, transparent);
+      color: #fff;
+      background: var(--panel-grad);
+      background-size: 160% auto;
+      border: 1px solid transparent;
+      box-shadow: 0 12px 26px -12px color-mix(in srgb, var(--panel-accent) 75%, transparent);
       transition:
         transform 0.18s ease,
         box-shadow 0.18s ease,
-        background 0.18s ease;
-    }
-
-    // Kill the default translucent tint Quartz adds to internal links so the
-    // pill background reads cleanly.
-    ul li a.internal {
-      background: color-mix(in srgb, var(--darkgray) 6%, transparent);
-    }
-
-    ul li a:hover {
-      transform: translateY(-2px);
-      background: color-mix(in srgb, var(--darkgray) 11%, transparent);
-    }
-
-    // The single link under each feature section is the primary call to
-    // action — upgrade it to a gradient button with a trailing arrow.
-    li:only-child a,
-    li:only-child a.internal {
-      color: #fff;
-      background: var(--ct-grad);
-      background-size: 160% auto;
-      border-color: transparent;
-      box-shadow: 0 10px 24px -12px rgba(90, 80, 220, 0.7);
+        background-position 0.3s ease;
     }
 
     li:only-child a::after {
@@ -411,23 +436,129 @@ body[data-slug="index"] {
     }
 
     li:only-child a:hover {
+      transform: translateY(-2px);
       background-position: 100% 0;
-      box-shadow: 0 14px 30px -12px rgba(90, 80, 220, 0.8);
+      box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--panel-accent) 85%, transparent);
+    }
+  }
+
+  // ---- DARK panels (odd: Gemini, Strategic Leadership, Connect) -----------
+  // Fixed near-black surface in BOTH themes — on the light theme this is the
+  // "black product card on a white page" Apple contrast.
+  .home-panel:nth-of-type(odd) {
+    background:
+      radial-gradient(
+        520px 300px at 85% -60px,
+        color-mix(in srgb, var(--panel-accent) 22%, transparent),
+        transparent 68%
+      ),
+      radial-gradient(
+        460px 280px at 8% 105%,
+        color-mix(in srgb, var(--panel-accent) 13%, transparent),
+        transparent 66%
+      ),
+      #0d0d12;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 24px 50px -32px rgba(0, 0, 0, 0.65);
+
+    // Hero-matching dot-grid texture.
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(
+        circle at 1px 1px,
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 0
+      );
+      background-size: 26px 26px;
     }
 
-    // Soft, fading divider instead of a hard rule.
-    hr {
-      max-width: 100%;
-      height: 1px;
-      border: 0;
-      margin: 3rem auto;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        color-mix(in srgb, var(--darkgray) 14%, transparent),
-        transparent
-      );
+    h3 {
+      color: color-mix(in srgb, var(--panel-accent) 78%, #fff);
     }
+
+    img {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    // Neutral chips (Connect row) on a dark surface.
+    li:not(:only-child) a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.3rem;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #f5f5f7;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    li:not(:only-child) a:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.14);
+      border-color: color-mix(in srgb, var(--panel-accent) 55%, transparent);
+      box-shadow: none;
+    }
+  }
+
+  // ---- LIGHT panels (even: Library Media, Insights & Vision) --------------
+  // Fixed soft-white surface in BOTH themes — on the dark theme this is the
+  // "white product card on black" pop.
+  .home-panel:nth-of-type(even) {
+    background:
+      radial-gradient(
+        560px 320px at 12% -80px,
+        color-mix(in srgb, var(--panel-accent) 12%, transparent),
+        transparent 68%
+      ),
+      linear-gradient(175deg, #ffffff, #f2f2f6);
+    border: 1px solid rgba(20, 20, 40, 0.08);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 24px 50px -32px rgba(10, 10, 30, 0.35);
+
+    h3 {
+      color: color-mix(in srgb, var(--panel-accent) 82%, #1d1d1f);
+    }
+
+    img {
+      border: 1px solid rgba(20, 20, 40, 0.1);
+    }
+  }
+
+  // ---- Per-section accents (index.md order: Gemini, Library, Leadership,
+  // Insights, Connect) — the pop of color on each neutral surface. ----------
+  .home-panel:nth-of-type(1) {
+    --panel-accent: #7ba7ff;
+    --panel-grad: linear-gradient(120deg, #4285f4, #9163d0 50%, #b3319b);
+  }
+  .home-panel:nth-of-type(2) {
+    --panel-accent: #e05252;
+    --panel-grad: linear-gradient(120deg, #ef4444, #d946ef 55%, #14b8a6);
+  }
+  .home-panel:nth-of-type(3) {
+    --panel-accent: #a78bfa;
+    --panel-grad: linear-gradient(120deg, #6366f1, #8b5cf6 50%, #d946ef);
+  }
+  .home-panel:nth-of-type(4) {
+    --panel-accent: #ca8a04;
+    --panel-grad: linear-gradient(120deg, #f59e0b, #84cc16 60%, #10b981);
+  }
+  .home-panel:nth-of-type(5) {
+    --panel-accent: #7c8bff;
+    --panel-grad: linear-gradient(120deg, #0071e3, #5b6bff 45%, #a855f7);
   }
 }
 
@@ -693,10 +824,14 @@ body:not([data-slug="index"]) {
   }
 
   // Section headings keep their text color (so emoji stay intact) but gain a
-  // short gradient underline for color and rhythm.
+  // short gradient underline for color and rhythm. block + fit-content keeps
+  // the underline hugging the text WITHOUT letting consecutive headings flow
+  // onto the same line (inline-block let "About Me" and "My Philosophy" sit
+  // side by side).
   article h1,
   article h2 {
-    display: inline-block;
+    display: block;
+    width: fit-content;
     padding-bottom: 0.35rem;
     border-bottom: 2px solid transparent;
     border-image: var(--ct-grad-line) 1;
@@ -1000,5 +1135,161 @@ body:not([data-slug="index"]) {
   }
   .section-ul > .section-li > .section::before {
     transition: none !important;
+  }
+}
+
+// ============================================================================
+// Mechanical / technical polish — accessibility, touch, and small-screen
+// ergonomics for both desktop and mobile.
+// ============================================================================
+
+// Keyboard navigation gets a clear, on-brand focus ring (buttons, links,
+// search input) instead of the browser default or nothing at all.
+:focus-visible {
+  outline: 2px solid var(--ct-accent, var(--secondary));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+// Kill the grey iOS tap flash; interactive elements already have their own
+// hover/active states.
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+// In-page anchor jumps glide instead of teleporting (disabled for users who
+// prefer reduced motion).
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+// Headlines break evenly across lines instead of leaving a one-word orphan;
+// body text avoids ragged short last lines. Progressive enhancement — older
+// browsers simply ignore these.
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+article p {
+  text-wrap: pretty;
+}
+
+// Never let an image distort when only one dimension is constrained.
+article img {
+  height: auto;
+  max-width: 100%;
+}
+
+// Wide prose tables scroll sideways inside their own container on small
+// screens instead of stretching the whole page. Selector matches the
+// interior-page artifact-table rule's specificity, whose `overflow: hidden`
+// (for rounded corners) would otherwise clip instead of scroll.
+@media all and ($mobile) {
+  article table,
+  body:not([data-slug="index"]) article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+// On touch devices there is no hover: don't hide the card sheen forever,
+// and give taps a subtle press response instead of a lift that never fires.
+@media (hover: none) {
+  .section-ul > .section-li > .section:active,
+  .home-panel li a:active,
+  .gemini-step:active {
+    transform: scale(0.985);
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Footer — centered, quiet, with a soft gradient rule above it so the page
+// ends on the same color language it opened with.
+// ----------------------------------------------------------------------------
+.page footer {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 46rem;
+  margin: 3rem auto 0;
+  padding: 1.75rem 1.5rem 2.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--ct-accent) 35%, transparent),
+      color-mix(in srgb, var(--ct-accent-2) 30%, transparent),
+      transparent
+    )
+    1;
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 0;
+    margin: 0.6rem 0 0;
+  }
+
+  a {
+    color: var(--gray);
+    background: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--ct-accent);
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Search modal — the plugin default is a bare 7px-radius strip that reads
+// dark-on-dark. Rebuild it in the site's glass language: a properly dimmed,
+// heavily blurred backdrop, a narrower centered column, and a frosted input
+// + results panel with the accent focus treatment.
+// ----------------------------------------------------------------------------
+.search > .search-container {
+  backdrop-filter: blur(14px) saturate(1.2);
+  background: color-mix(in srgb, var(--light) 30%, transparent);
+}
+
+.search > .search-container > .search-space {
+  max-width: 42rem;
+
+  > input {
+    padding: 0.85em 1.15em;
+    border-radius: 14px;
+    border: 1px solid color-mix(in srgb, var(--ct-accent) 30%, var(--lightgray));
+    background: color-mix(in srgb, var(--light) 88%, var(--ct-accent));
+    box-shadow:
+      inset 0 1px 0 var(--ct-card-hi),
+      0 24px 60px -20px rgba(10, 10, 30, 0.5);
+
+    &:focus {
+      border-color: color-mix(in srgb, var(--ct-accent) 65%, transparent);
+      box-shadow:
+        inset 0 1px 0 var(--ct-card-hi),
+        0 0 0 3px color-mix(in srgb, var(--ct-accent) 22%, transparent),
+        0 24px 60px -20px rgba(10, 10, 30, 0.5);
+    }
+  }
+
+  > .search-layout {
+    border-radius: 14px;
+    border: 1px solid color-mix(in srgb, var(--ct-accent) 22%, var(--lightgray));
+    overflow: hidden;
   }
 }
